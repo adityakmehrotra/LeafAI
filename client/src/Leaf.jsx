@@ -47,7 +47,7 @@ return (
         <Card style={{backgroundColor: "#e0ffe8", margin: "25px 300px"}}>
             <div style={{display: (!props.fileUploaded) ? "none" : "flex", paddingTop: "2.5%", paddingBottom: "2.5%", width: "100%"}}>
                 <div style={{width: "40%", height: "40%", paddingLeft: "10%"}}>
-                    <img src={imgSrc} style={{width: "100%", height: "auto"}} />
+                    <img src={imgSrc} alt="Picture of the Leaf" style={{width: "100%", height: "auto"}} />
                 </div>
             
                 <div style={{display: "flex", flexDirection: "column", paddingLeft: "5%", paddingRight: "10%", width: "70%"}}>
