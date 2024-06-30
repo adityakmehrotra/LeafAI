@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 import Leaf from './Leaf'
 import Acca_Sellowiana from "./leaf_images/Acca_Sellowiana_Img.jpeg";
@@ -36,16 +35,13 @@ import Schinus_Terebinthifolius from "./leaf_images/Schinus_Terebinthifolius_Img
 import Taxus_Bacatta from "./leaf_images/Taxus_Bacatta_Img.jpeg";
 import Tilia_Tomentosa from "./leaf_images/Tilia_Tomentosa_Img.jpeg";
 import Urtica_Dioica from "./leaf_images/Urtica_Dioica_Img.jpeg";
-import Background_Leaf_Image_2 from "./background/leaf_1.png";
 
 import Rand_Image_1 from "./download_images/Geranium_Sp_Image.JPG";
 
 
 function App() {
-  const [data, setData] = useState("");
   const [val, setVal] = useState("Upload image to predict");
   const [predClass, setPredClass] = useState("");
-  const [predValue, setPredValue] = useState("");
   const [accuracyValue, setAccuracyValue] = useState(0);
   const fileInputRef = useRef(null);
   const [predClick, setPredClick] = useState(false);
@@ -58,14 +54,13 @@ function App() {
 
   const pageEndRef = useRef(null)
 
-  const [randImg, setRandImg] = useState();
-
   useEffect(() => {
     fetch("http://leafai.us-east-2.elasticbeanstalk.com/")
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
-        setData(data.message);
+        console.log(filename)
+        setDownloadButtonDisabled(false)
       });
     
 
@@ -309,7 +304,7 @@ function App() {
           description: "Better known as the stinging nettle, this plant is notable for its serrated leaves and tiny, stinging hairs that can cause irritation upon contact. Despite this, it is valued for its nutritional and medicinal properties and is often used in herbal remedies and cooking."
       },
     ]);
-  }, []);
+  }, [filename]);
   const [file, setFile] = useState(null);
 
   const handleSubmit = async (event) => {

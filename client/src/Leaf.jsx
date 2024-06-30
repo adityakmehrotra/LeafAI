@@ -1,12 +1,9 @@
 import {React} from "react"
-import { useState, useEffect, useContext} from "react"
-import { Card, Button } from "react-bootstrap";
-
-import Acca_Sellowiana from "./leaf_images/Acca_Sellowiana_Img.jpeg";
+import { useState, useEffect } from "react"
+import { Card } from "react-bootstrap";
 
 function Leaf(props) {
 
-    const [leafDetails, setLeafDetails] = useState([]);
     const [leafSpecies, setLeafSpecies] = useState("");
     const [accuracy, setAccuracy] = useState("");
     const [buttonStyle, setButtonStyle] = useState("");
@@ -42,7 +39,7 @@ function Leaf(props) {
             console.log(accuracy);
         }
 
-    }, [props]);
+    }, [props, accuracy, leafSpecies]);
 
 
 return (
