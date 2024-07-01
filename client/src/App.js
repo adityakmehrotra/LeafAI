@@ -56,12 +56,21 @@ function App() {
 
   useEffect(() => {
     fetch("https://leafai-api.adityakmehrotra.com")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        console.log(filename)
-        setDownloadButtonDisabled(false)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        console.log(filename);
+        setDownloadButtonDisabled(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
       });
+  }, []);
     
 
     setLeafDetails(prevList => [
