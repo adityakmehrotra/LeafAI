@@ -55,7 +55,7 @@ function App() {
   const pageEndRef = useRef(null)
 
   useEffect(() => {
-    fetch("http://leafai.us-east-2.elasticbeanstalk.com/")
+    fetch("https://leafai.us-east-2.elasticbeanstalk.com/")
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
@@ -326,7 +326,7 @@ function App() {
     console.log(formData)
 
     try {
-      fetch("http://leafai.us-east-2.elasticbeanstalk.com/upload", {
+      fetch("https://leafai.us-east-2.elasticbeanstalk.com/upload", {
       method: 'POST',
       body: formData,
     })
