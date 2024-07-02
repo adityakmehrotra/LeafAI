@@ -325,10 +325,11 @@ function App() {
     console.log(formData.entries)
     console.log(formData)
 
+
     try {
-      fetch("https://leafai-api.adityakmehrotra/upload", {
+      fetch("https://leafai-api.adityakmehrotra.com/upload", {
       method: 'POST',
-      body: formData,
+      body: formData
     })
     .then(response => {
       if (!response.ok) {
@@ -353,6 +354,7 @@ function App() {
     }
 
   };
+
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     setFilename(file.name);
