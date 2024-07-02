@@ -36,7 +36,16 @@ import Taxus_Bacatta from "./leaf_images/Taxus_Bacatta_Img.jpeg";
 import Tilia_Tomentosa from "./leaf_images/Tilia_Tomentosa_Img.jpeg";
 import Urtica_Dioica from "./leaf_images/Urtica_Dioica_Img.jpeg";
 
-import Rand_Image_1 from "./download_images/Geranium_Sp_Image.JPG";
+import Rand_Image_0 from "./download_images/Acca_Sellowiana_Random_Image.JPG";
+import Rand_Image_1 from "./download_images/Acer_Negundo_Random_Image.JPG";
+import Rand_Image_2 from "./download_images/Castanea_Sativa_Random_Image.JPG";
+import Rand_Image_3 from "./download_images/Chelidonium_Majus_Random_Image.JPG";
+import Rand_Image_4 from "./download_images/Fraxinus_Sp_Random_Image.JPG";
+import Rand_Image_5 from "./download_images/Geranium_Sp_Random_Image.JPG";
+import Rand_Image_6 from "./download_images/Magnolia_Soulangeana_Random_Image.JPG";
+import Rand_Image_7 from "./download_images/Primula_Vulgaris_Random_Image.JPG";
+import Rand_Image_8 from "./download_images/Quercus_Robur_Random_Image.JPG";
+import Rand_Image_9 from "./download_images/Urtica_Dioica_Random_Image.JPG";
 
 
 function App() {
@@ -371,6 +380,33 @@ function App() {
     }
   }
 
+  const getRandImage = () => {
+    switch (Math.floor(Math.random() * 9)) {
+      case 0:
+        return Rand_Image_0;
+      case 1:
+        return Rand_Image_1;
+      case 2:
+        return Rand_Image_2;
+      case 3:
+        return Rand_Image_3;
+      case 4:
+        return Rand_Image_4;
+      case 5:
+        return Rand_Image_5;
+      case 6:
+        return Rand_Image_6;
+      case 7:
+        return Rand_Image_7;
+      case 8:
+        return Rand_Image_8;
+      case 9:
+        return Rand_Image_9;
+      default:
+        return Rand_Image_0;
+    }
+  }
+
   return (
     <>
       <div>
@@ -421,11 +457,12 @@ function App() {
               <button 
                 style={{marginTop: "5%", marginLeft: "30%", marginRight: "30%", marginBottom: "1.5%", fontSize: "16px"}} 
                 type="button" 
-                class="btn btn-outline-info">
+                class="btn btn-outline-info"
+                onClick={() => getRandImage()}>
                 Generate New Image
               </button>
               <Button style={{marginTop: "2.5%", marginLeft: "25%", marginRight: "25%", marginBottom: "2.5%", disabled: downloadButtonDisabled}}><a style={{color: "inherit", textDecoration: "none"}} 
-                href={Rand_Image_1} download>Click to Download</a></Button>
+                href={getRandImage()} download>Click to Download</a></Button>
             </Card>
           </div>
         </div>
