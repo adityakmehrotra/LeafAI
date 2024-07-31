@@ -351,7 +351,6 @@ function App() {
       setVal(data.Pred_Class);
       setPredClass(data.Pred_Class);
       setAccuracyValue(data.Accuracy);
-      alert("Predicting the Leaf Species");
     })
     .catch(error => {
       console.error('Error:', error);
