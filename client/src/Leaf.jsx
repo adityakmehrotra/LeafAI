@@ -31,7 +31,7 @@ function Leaf(props) {
             if (props.accuracyValue == 1) {
                 setAccuracy("Low Accuracy");
                 setButtonStyle("danger");
-            else if (props.accuracyValue > 0.8) {
+            } else if (props.accuracyValue > 0.8) {
                 setAccuracy("High Accuracy");
                 setButtonStyle("success");
             } else if (props.accuracyValue > 0.5) {
