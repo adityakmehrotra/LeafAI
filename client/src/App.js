@@ -467,20 +467,18 @@ function App() {
         </div>
         </form>
         <div>
-          {
-            pageEndRef.current?.scrollIntoView({ behavior: "smooth" })
-          }{mlLoading ? (
-		  <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
-		    <span className="visually-hidden">Loading...</span>
-		  </Spinner>
-		) : (
-		  {!badFile && (
-			<div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none" }}>
-			  <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
-			</div>
-		  )}
-		)}
-        </div>
+	      {mlLoading ? (
+	        <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
+	          <span className="visually-hidden">Loading...</span>
+	        </Spinner>
+	      ) : (
+	        !badFile && (
+	          <div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none" }}>
+	            <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
+	          </div>
+	        )
+	      )}
+	    </div>
       </div>
     </>
   );
