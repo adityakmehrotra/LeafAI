@@ -13,14 +13,15 @@ function Leaf(props) {
 
     useEffect(() => {
         if (props.leafDetails && props.val !== "Upload image to predict") {
-            setLeafSpecies(props.leafDetails[props.val]["name"]);
-            setImgSrc(props.leafDetails[props.val]["source"]);
-            setOrigin(props.leafDetails[props.val]["origin"]);
-            setDescription(props.leafDetails[props.val]["description"]);
+            const details = props.leafDetails[props.val];
+            setLeafSpecies(details.name);
+            setImgSrc(details.source);
+            setOrigin(details.origin);
+            setDescription(details.description);
 
-            if (props.accuracyValue == 1) {
-                setAccuracy("Low Accuracy");
-                setButtonStyle("danger");
+            if (props.accuracyValue === 1) {
+                alert("There was an issue with this image. Please use another image.");
+                props.resetUpload(); // Assuming you pass a resetUpload function from parent
             } else if (props.accuracyValue > 0.8) {
                 setAccuracy("High Accuracy");
                 setButtonStyle("success");
@@ -44,41 +45,29 @@ function Leaf(props) {
 
     return (
         <div>
-            <Card style={{ backgroundColor: "#e0ffe8", margin: "25px 300px" }}>
-                <div style={{ display: (!props.fileUploaded) ? "none" : "flex", paddingTop: "2.5%", paddingBottom: "2.5%", width: "100%" }}>
-                    <div style={{ width: "40%", height: "40%", paddingLeft: "10%" }}>
-                        <img src={imgSrc} alt="Leaf Species" style={{ width: "100%", height: "auto" }} />
-                    </div>
-
-                    <div style={{ display: "flex", flexDirection: "column", paddingLeft: "5%", paddingRight: "10%", width: "70%" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "5px", width: "100%" }}>
-                            <p style={{ fontSize: "32px", flexGrow: 1 }}>{leafSpecies}</p>
-                            <button
-                                type="button"
-                                className={`btn btn-outline-${buttonStyle}`}
-                                style={{ fontSize: "24px" }}
-                                onClick={handleButtonClick}
-                            >
+            <Card style={{ backgroundColor: "#e0ffe8", margin: "20px 15%", padding: "20px" }}>
+                {props.fileUploaded && (
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <div style={{ width: "30%", padding: "10px" }}>
+                            <img src={imgSrc} alt="Leaf Species" style={{ width: "100%", height: "auto", borderRadius: "8px" }} />
+                        </div>
+                        <div style={{ width: "70%", paddingLeft: "5%" }}>
+                            <h4>{leafSpecies}</h4>
+                            <Button variant={`outline-${buttonStyle}`} onClick={handleButtonClick} style={{ width: "max-content", marginBottom: "10px" }}>
                                 {accuracy}
-                            </button>
-                        </div>
-                        <div style={{ textAlign: "left", width: "100%" }}>
-                            <p style={{ fontSize: "24px" }}>Area of Origin: {origin}</p>
-                        </div>
-                        <div style={{ textAlign: "left", width: "100%" }}>
-                            <p style={{ fontSize: "20px" }}>{description}</p>
+                            </Button>
+                            <p>Area of Origin: {origin}</p>
+                            <p>{description}</p>
                         </div>
                     </div>
-                </div>
+                )}
             </Card>
 
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal show={showModal} onHide={handleCloseModal} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Accuracy Information</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    The accuracy of this prediction is: <strong>{accuracy}</strong>
-                </Modal.Body>
+                <Modal.Body>The accuracy of this prediction is: <strong>{accuracy}</strong></Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>
                         Close
