@@ -60,6 +60,7 @@ function App() {
   const [leafDetails, setLeafDetails] = useState([]);
 
   const [downloadButtonDisabled, setDownloadButtonDisabled] = useState(false);
+  const [mlLoading, setMLLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [badFile, setBadFile] = useState(false);
@@ -312,7 +313,7 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);  // Start loading before the fetch operation
+    setMLLoading(true);  // Start loading before the fetch operation
     const formData = new FormData();
     formData.append("file", file);
   
@@ -343,12 +344,12 @@ function App() {
       alert('Failed to predict the leaf species.');
       handleFileReset(); // Reset automatically on error
     } finally {
-      setLoading(false);  // End loading regardless of the result
+      setMLLoading(false);  // End loading regardless of the result
     }
   };
 
 // Add this loading indicator somewhere in your JSX, where it makes sense in your UI
-{loading && <div>Loading...</div>}
+{mlLoading && <div>Loading...</div>}
 
 
   const handleFileUpload = (event) => {
@@ -468,12 +469,17 @@ function App() {
         <div>
           {
             pageEndRef.current?.scrollIntoView({ behavior: "smooth" })
-          }
-          {!badFile && (
+          }{mlLoading ? (
+		  <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
+		    <span className="visually-hidden">Loading...</span>
+		  </Spinner>
+		) : (
+		  {!badFile && (
 			<div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none" }}>
 			  <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
 			</div>
 		  )}
+		)}
         </div>
       </div>
     </>
