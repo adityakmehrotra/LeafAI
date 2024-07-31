@@ -466,14 +466,16 @@ function App() {
           </button>
         </div>
         </form>
-        <div>
+       <div>
 	      {mlLoading ? (
-	        <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
-	          <span className="visually-hidden">Loading...</span>
-	        </Spinner>
+	        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px', backgroundColor: "#ebfff0" }}>
+	          <Spinner animation="border" role="status" style={{ width: '3rem', height: '3rem' }}>
+	            <span className="visually-hidden">Loading...</span>
+	          </Spinner>
+	        </div>
 	      ) : (
 	        !badFile && (
-	          <div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none" }}>
+	          <div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none", height: '200px' }}>
 	            <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
 	          </div>
 	        )
