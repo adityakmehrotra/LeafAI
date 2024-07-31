@@ -416,7 +416,13 @@ function App() {
         <form onSubmit={handleSubmit}>
           <div style={{ display: "flex", textAlign: "center", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
           
-            <Card style={{ width: "400px", height: "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none" }} />
+            {/* Card for Image Upload */}
+            <Card style={{ width: "400px", height: "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none" }}>
+              <div style={{ width: "100%", textAlign: "center", padding: "20px" }}>
+                {/* Placeholder for an image or other content */}
+              </div>
+            </Card>
+  
             <div style={{ marginLeft: "5%" }}>
               <label>
                 <div style={{ width: "10px", justifyContent: "center" }}>
@@ -435,6 +441,7 @@ function App() {
                 />
               </label>
             </div>
+  
             <div style={{ marginRight: "5%" }}>
               <Card style={{ width: "400px", height: "200px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", justifyContent: "right", paddingTop: "2.5%", fontSize: "24px" }}>
                 Download Random Leaf Image
@@ -465,17 +472,12 @@ function App() {
           </div>
         </form>
   
-        <div>
-          {pageEndRef.current?.scrollIntoView({ behavior: "smooth" })}
-          {badFile ? null : (
-            <>
-              <div ref={pageEndRef} />
-              <div style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none" }}>
-                <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
-              </div>
-            </>
-          )}
-        </div>
+        {pageEndRef.current?.scrollIntoView({ behavior: "smooth" })}
+        {!badFile && (
+          <div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none" }}>
+            <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
+          </div>
+        )}
       </div>
     </>
   );
