@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Spinner } from "react-bootstrap";
 import Leaf from './Leaf'
 import Acca_Sellowiana from "./leaf_images/Acca_Sellowiana_Img.jpeg";
 import Acer_Negundo from "./leaf_images/Acca_Sellowiana_Img.jpeg";
@@ -61,7 +61,9 @@ function App() {
 
   const [downloadButtonDisabled, setDownloadButtonDisabled] = useState(false);
 
+  const [downloadButtonDisabled, setDownloadButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [badFile, setBadFile] = useState(false);
 
   const pageEndRef = useRef(null)
@@ -368,31 +370,28 @@ function App() {
   }
 
   const getRandImage = () => {
-    switch (Math.floor(Math.random() * 9)) {
-      case 0:
-        return Rand_Image_0;
-      case 1:
-        return Rand_Image_1;
-      case 2:
-        return Rand_Image_2;
-      case 3:
-        return Rand_Image_3;
-      case 4:
-        return Rand_Image_4;
-      case 5:
-        return Rand_Image_5;
-      case 6:
-        return Rand_Image_6;
-      case 7:
-        return Rand_Image_7;
-      case 8:
-        return Rand_Image_8;
-      case 9:
-        return Rand_Image_9;
-      default:
-        return Rand_Image_0;
-    }
-  }
+    const images = [Rand_Image_0, Rand_Image_1, Rand_Image_2, Rand_Image_3, Rand_Image_4, Rand_Image_5, Rand_Image_6, Rand_Image_7, Rand_Image_8, Rand_Image_9];
+    return images[Math.floor(Math.random() * images.length)];
+  };
+
+ const handleGenerateImage = () => {
+    setLoading(true);
+    setTimeout(() => {
+      const newImage = getRandImage();
+      setSelectedImage(newImage);
+      setLoading(false);
+    }, 1000); // Simulate loading for 1 second
+  };
+
+ const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = selectedImage;
+    link.download = 'DownloadedImage.jpg'; // Force download as JPG
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setDownloadButtonDisabled(true);
+  };
 
   return (
     <>
@@ -438,20 +437,23 @@ function App() {
             </label>
           </div>
           <div style={{marginRight: "5%"}}>
-            <Card style={{width: "400px", height: "200px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", justifyContent: "right", paddingTop: "2.5%",
-              fontSize: "24px"}}>
-              Download Random Leaf Image
-              <button 
-                style={{marginTop: "5%", marginLeft: "30%", marginRight: "30%", marginBottom: "1.5%", fontSize: "16px"}} 
-                type="button" 
-                class="btn btn-outline-info"
-                onClick={() => getRandImage()}>
-                Generate New Image
-              </button>
-              <Button style={{marginTop: "2.5%", marginLeft: "25%", marginRight: "25%", marginBottom: "2.5%", disabled: downloadButtonDisabled}}><a style={{color: "inherit", textDecoration: "none"}} 
-                href={getRandImage()} download>Click to Download</a></Button>
-            </Card>
-          </div>
+	      <Card style={{width: "400px", height: "250px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px"}}>
+		<div>Download Random Leaf Image</div>
+		{loading ? (
+		  <Spinner animation="border" role="status">
+		    <span className="visually-hidden">Loading...</span>
+		  </Spinner>
+		) : (
+		  <img src={selectedImage} alt="Random Leaf" style={{width: "100%", height: "100px", objectFit: "cover", marginBottom: "10px"}} />
+		)}
+		<Button onClick={handleGenerateImage} disabled={downloadButtonDisabled} variant="info" style={{marginBottom: "10px"}}>
+		  Generate New Image
+		</Button>
+		<Button onClick={handleDownload} disabled={!selectedImage || downloadButtonDisabled} variant="success">
+		  Click to Download
+		</Button>
+	      </Card>
+	    </div>
         </div>
         <div style={{textAlign: "center", justifyContent: "center", paddingTop: "2%", paddingBottom: "1%"}}>
           <button class="btn btn-outline-success" type="submit" disabled={!fileUploaded} onClick={() => setPredClick(true)} style={{fontSize: "20px"}}>
