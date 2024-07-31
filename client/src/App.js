@@ -67,15 +67,6 @@ function App() {
   const pageEndRef = useRef(null)
 
   useEffect(() => {
-    fetch("https://leafai-api.adityakmehrotra.com")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        console.log(filename)
-        setDownloadButtonDisabled(false)
-      });
-    
-
     setLeafDetails(prevList => [
       {
           index: 0,
