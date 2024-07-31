@@ -320,7 +320,7 @@ function App() {
 
   const handleSubmit = async (event) => {
   event.preventDefault();
-
+  setLoading(true);  // Start loading before the fetch operation
   const formData = new FormData();
   formData.append("file", file);
 
@@ -335,17 +335,27 @@ function App() {
     }
 
     const data = await response.json();
-    setVal(data.Pred_Class);
-    setPredClass(data.Pred_Class);
-    setAccuracyValue(data.Accuracy);
-    setPredClick(true);  // Ensure this only happens on success
+    if (data.Accuracy === 1) {
+      alert("There was an issue with this image. Please use another one.");
+      handleFileReset();
+    } else {
+      setVal(data.Pred_Class);
+      setPredClass(data.Pred_Class);
+      setAccuracyValue(data.Accuracy);
+      setPredClick(true);
+    }
   } catch (error) {
     console.error('Error:', error);
     alert('Failed to predict the leaf species: ' + error.message);
-    handleFileReset();  // Reset automatically on error
-    setPredClick(false);  // Hide the Leaf results div
+    handleFileReset();
+  } finally {
+    setLoading(false);  // End loading regardless of the result
   }
 };
+
+// Add this loading indicator somewhere in your JSX, where it makes sense in your UI
+{loading && <div>Loading...</div>}
+
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
