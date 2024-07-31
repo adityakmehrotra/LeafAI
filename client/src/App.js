@@ -336,18 +336,18 @@ function App() {
 
     const data = await response.json();
     if (data.Accuracy === 1) {
+      handleFileReset(); // Reset everything before showing the alert to prevent old results from displaying
       alert("There was an issue with this image. Please use another one.");
-      handleFileReset();
     } else {
       setVal(data.Pred_Class);
       setPredClass(data.Pred_Class);
       setAccuracyValue(data.Accuracy);
-      setPredClick(true);
+      setPredClick(true); // Display results only on valid conditions
     }
   } catch (error) {
     console.error('Error:', error);
     alert('Failed to predict the leaf species: ' + error.message);
-    handleFileReset();
+    handleFileReset(); // Reset automatically on error
   } finally {
     setLoading(false);  // End loading regardless of the result
   }
