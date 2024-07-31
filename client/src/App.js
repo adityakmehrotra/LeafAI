@@ -445,7 +445,7 @@ function App() {
 	        <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
 	          Generate New Image
 	        </Button>
-	        <Button onClick={(e) => {setFile(e.target.files[0]); handleFileUpload(e); handleDownload();}} disabled={!selectedImage || downloadButtonDisabled} variant="success">
+	        <Button onClick={(selectedImage) => {setFile(selectedImage.target.files[0]); handleFileUpload(selectedImage); handleDownload();}} disabled={!selectedImage || downloadButtonDisabled} variant="success">
 	          Click to Download
 	        </Button>
 	        <input type="file" ref={fileInputRef} style={{ display: "none" }} />
