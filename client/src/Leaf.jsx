@@ -70,6 +70,9 @@ function Leaf(props) {
                     <Modal.Title>Accuracy Information</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>The accuracy of this prediction is: <strong>{accuracy}</strong></Modal.Body>
+                <Modal.Body>{accuracy === "High Accuracy" ? <strong>High Accuracy:</strong> High accuracy indicates that the predictive model's output is very close to the true data values, suggesting that the model understands and processes the input data effectively. This level of accuracy confirms that you can rely on the prediction results. 
+                    : {accuracy === "Medium Accuracy" ? <strong>Medium Accuracy:</strong> Medium accuracy suggests that while the model generally identifies trends correctly, there are some errors in its output. The predictions are generally usable, but it might be a good idea to review the results for any possible anomalies or inconsistencies 
+                    : <strong>Low Accuracy:</strong> Low accuracy implies significant issues with the model's output alignment with true values. If you encounter low accuracy, it's recommended that you upload a new image as the current one may not have been clear or detailed enough for accurate prediction.}}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>
                         Close
