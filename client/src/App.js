@@ -60,8 +60,6 @@ function App() {
   const [leafDetails, setLeafDetails] = useState([]);
 
   const [downloadButtonDisabled, setDownloadButtonDisabled] = useState(false);
-
-  const [downloadButtonDisabled, setDownloadButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [badFile, setBadFile] = useState(false);
