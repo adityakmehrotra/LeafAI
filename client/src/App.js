@@ -61,6 +61,8 @@ function App() {
 
   const [downloadButtonDisabled, setDownloadButtonDisabled] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const pageEndRef = useRef(null)
 
   useEffect(() => {
