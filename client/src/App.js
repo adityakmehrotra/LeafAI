@@ -466,7 +466,7 @@ function App() {
           }
           <div ref={pageEndRef} />
           <div style={{backgroundColor: "#ebfff0", display: predClick ? "block" : "none"}}>
-            <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick}></Leaf>
+            <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
           </div>
         </div>
       </div>
