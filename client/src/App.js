@@ -65,7 +65,6 @@ function App() {
   const [badFile, setBadFile] = useState(false);
 
   const pageEndRef = useRef(null)
-  const fileInputRef = React.useRef(null);
 
   useEffect(() => {
     setLeafDetails(prevList => [
