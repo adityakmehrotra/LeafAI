@@ -317,51 +317,33 @@ function App() {
   const [file, setFile] = useState(null);
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const formData = new FormData();
-    console.log(formData)
-    formData.append("file", file);
+  const formData = new FormData();
+  formData.append("file", file);
 
-    console.log(file)
-    console.log(formData)
-    console.log("Test Below")
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}:`, value);
-      console.log(value.name)
-    }
-
-    console.log(formData.entries)
-    console.log(formData)
-
-
-    try {
-      fetch("https://leafai-api.adityakmehrotra.com/upload", {
+  try {
+    const response = await fetch("https://leafai-api.adityakmehrotra.com/upload", {
       method: 'POST',
       body: formData
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Server responded with status ' + response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(formData);
-      setVal(data.Pred_Class);
-      setPredClass(data.Pred_Class);
-      setAccuracyValue(data.Accuracy);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Failed to predict the leaf species: ' + error.message);
     });
 
-    } catch (error) {
-      console.error(error);
+    if (!response.ok) {
+      throw new Error('Server responded with status ' + response.status);
     }
 
-  };
+    const data = await response.json();
+    setVal(data.Pred_Class);
+    setPredClass(data.Pred_Class);
+    setAccuracyValue(data.Accuracy);
+    setPredClick(true);  // Ensure this only happens on success
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to predict the leaf species: ' + error.message);
+    handleFileReset();  // Reset automatically on error
+    setPredClick(false);  // Hide the Leaf results div
+  }
+};
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
