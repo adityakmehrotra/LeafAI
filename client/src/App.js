@@ -65,6 +65,7 @@ function App() {
   const [badFile, setBadFile] = useState(false);
 
   const pageEndRef = useRef(null)
+  const fileInputRef = React.useRef(null);
 
   useEffect(() => {
     setLeafDetails(prevList => [
@@ -435,21 +436,20 @@ function App() {
             </label>
           </div>
           <div style={{marginRight: "5%"}}>
-	      <Card style={{width: "400px", height: "250px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px"}}>
-		<div>Download Random Leaf Image</div>
-		{loading ? (
-		  <Spinner animation="border" role="status">
-		    <span className="visually-hidden">Loading...</span>
-		  </Spinner>
-		) : (
-		  <img src={selectedImage} alt="Random Leaf" style={{width: "100%", height: "100px", objectFit: "cover", marginBottom: "10px"}} />
-		)}
-		<Button onClick={handleGenerateImage} disabled={downloadButtonDisabled} variant="info" style={{marginBottom: "10px"}}>
-		  Generate New Image
-		</Button>
-		<Button onClick={handleDownload} disabled={!selectedImage || downloadButtonDisabled} variant="success">
-		  Click to Download
-		</Button>
+	      <Card style={{width: "400px", height: "200px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px"}}>
+	        <div>Download Random Leaf Image</div>
+	        {loading && (
+	          <Spinner animation="border" role="status">
+	            <span className="visually-hidden">Loading...</span>
+	          </Spinner>
+	        )}
+	        <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
+	          Generate New Image
+	        </Button>
+	        <Button onClick={(e) => {setFile(e.target.files[0]); handleFileUpload(e); handleDownload();}} disabled={!selectedImage || downloadButtonDisabled} variant="success">
+	          Click to Download
+	        </Button>
+	        <input type="file" ref={fileInputRef} style={{ display: "none" }} />
 	      </Card>
 	    </div>
         </div>
@@ -458,14 +458,12 @@ function App() {
             {(!fileUploaded) ? 'Please Upload File Above' : 'Predict'}
           </button>
         </div>
-
         <div style={{textAlign: "center", justifyContent: "center"}}>
           <button type="button" class="btn btn-outline-danger" disabled={!fileUploaded} onClick={() => handleFileReset()} style={{fontSize: "20px"}}>
             Reset
           </button>
         </div>
         </form>
-
         <div>
           {
             pageEndRef.current?.scrollIntoView({ behavior: "smooth" })
