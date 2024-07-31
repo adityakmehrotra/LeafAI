@@ -328,7 +328,7 @@ function App() {
     try {
       const response = await fetch("https://leafai-api.adityakmehrotra.com/upload", {
         method: 'POST',
-        body: formDat a
+        body: formData
       });
   
       if (!response.ok) {
