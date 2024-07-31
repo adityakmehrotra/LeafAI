@@ -12,28 +12,29 @@ function Leaf(props) {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-    if (props.leafDetails && props.val !== "Upload image to predict") {
-        const details = props.leafDetails[props.val];
-        setLeafSpecies(details.name);
-        setImgSrc(details.source);
-        setOrigin(details.origin);
-        setDescription(details.description);
+  if (props.leafDetails && props.val !== "Upload image to predict") {
+    const details = props.leafDetails[props.val];
+    setLeafSpecies(details.name);
+    setImgSrc(details.source);
+    setOrigin(details.origin);
+    setDescription(details.description);
 
-        if (props.accuracyValue === 1) {
-            alert("There was an issue with this image. Please use another one.");
-            props.resetUpload();
-        } else if (props.accuracyValue > 0.8) {
-            setAccuracy("High Accuracy");
-            setButtonStyle("success");
-        } else if (props.accuracyValue > 0.5) {
-            setAccuracy("Medium Accuracy");
-            setButtonStyle("warning");
-        } else {
-            setAccuracy("Low Accuracy");
-            setButtonStyle("danger");
-        }
+    if (props.accuracyValue === 1) {
+      alert("There was an issue with this image. Please use another one.");
+      props.resetUpload();
+    } else if (props.accuracyValue > 0.8) {
+      setAccuracy("High Accuracy");
+      setButtonStyle("success");
+    } else if (props.accuracyValue > 0.5) {
+      setAccuracy("Medium Accuracy");
+      setButtonStyle("warning");
+    } else {
+      setAccuracy("Low Accuracy");
+      setButtonStyle("danger");
     }
+  }
 }, [props]);
+
 
 
     const handleButtonClick = () => {
