@@ -24,6 +24,9 @@ function Leaf(props) {
             setImgSrc(props.leafDetails[props.val]["source"])
             setOrigin(props.leafDetails[props.val]["origin"])
             setDescription(props.leafDetails[props.val]["description"])
+
+            console.log("ACCURACY")
+            console.log(props.accuracyValue);
             
             if (props.accuracyValue > 0.8) {
                 setAccuracy("High Accuracy");
