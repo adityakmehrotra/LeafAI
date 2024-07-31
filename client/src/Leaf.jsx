@@ -71,6 +71,7 @@ function Leaf(props) {
               </Modal.Header>
               <Modal.Body>
                 <p>The accuracy of this prediction is: <strong>{accuracy}</strong></p>
+                <hr />
                 {accuracy === "High Accuracy" && (
                   <p><strong>High Accuracy:</strong> High accuracy indicates that the predictive model's output is very close to the true data values, suggesting that the model understands and processes the input data effectively. This level of accuracy confirms that you can rely on the prediction results.</p>
                 )}
