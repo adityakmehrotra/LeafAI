@@ -398,7 +398,7 @@ function App() {
         </h1>
         
         <p style={{textAlign: "center", fontSize: "24px"}}>
-          Upload a leaf image file to detect it's species
+          Upload a leaf image file to detect its species
         </p>
         <form onSubmit={handleSubmit}>
           {
