@@ -326,6 +326,7 @@ function App() {
         if (!response.ok) {
             if (response.status === 429) { // Check if the rate limit has been exceeded
                 alert("You have exceeded the rate limit. Please wait a while before trying again.");
+		    handleFileReset();
             } else {
                 throw new Error('Server responded with status ' + response.status);
             }
