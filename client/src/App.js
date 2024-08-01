@@ -366,7 +366,7 @@ function App() {
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to process the request: ' + error.message);
+        alert('Something went wrong :(');
         handleFileReset();
     } finally {
         setMLLoading(false);  // End loading regardless of the result
