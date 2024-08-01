@@ -457,7 +457,7 @@ function App() {
                 type="file" 
                 name="file" 
                 className="hidden" 
-                onChange={handleFileUpload()}
+                onChange={(e) => handleFileUpload(e)}
                 ref = {fileInputRef}
                 style={{textAlign: "center"}}
                 disabled={fileUploaded}
