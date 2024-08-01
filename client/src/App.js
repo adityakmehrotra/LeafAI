@@ -55,7 +55,7 @@ function App() {
   const fileInputRef = useRef(null);
   const [predClick, setPredClick] = useState(false);
   
-  const [filename, setFilename] = useState("No file uploaded")
+  const [filename, setFilename] = useState("No file chosen")
   const [fileUploaded, setFileUploaded] = useState(false);
   const [leafDetails, setLeafDetails] = useState([]);
 
@@ -348,7 +348,7 @@ function App() {
             setPredClick(true); // Display results only on valid conditions
         }
     } catch (error) {
-    	setFilename("No file uploaded");
+    	setFilename("No file chosen");
         handleFileReset(); // Reset automatically on error
     } finally {
         setMLLoading(false);  // End loading regardless of the result
@@ -367,7 +367,7 @@ function App() {
   };
 
   const handleFileReset = () => {
-    setFilename("No file uploaded");
+    setFilename("No file chosen");
     setFile(null);
     setFileUploaded(false);
     setPredClick(false);
