@@ -470,7 +470,7 @@ function App() {
 		      <div style={{ height: '10px' }} /> {/* Minimal space to keep things tight but not too cramped */}
 		    </>
 		  ) : (
-		    <div style={{ height: '10px' }} /> {/* Minimal space when not loading */}
+		    <div style={{ height: '10px' }} />
 		  )}
 		  <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
 		    Generate New Image
