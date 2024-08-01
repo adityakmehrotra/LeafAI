@@ -467,10 +467,10 @@ function App() {
 		      <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
 		        <span className="visually-hidden">Loading...</span>
 		      </Spinner>
-		      <div style={{ height: '32px' }} />
+		      <div style={{ height: '10px' }} /> {/* Minimal space to keep things tight but not too cramped */}
 		    </>
 		  ) : (
-		    <div style={{ height: '10px' }} />
+		    <div style={{ height: '10px' }} /> {/* Minimal space when not loading */}
 		  )}
 		  <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
 		    Generate New Image
