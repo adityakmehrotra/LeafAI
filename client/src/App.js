@@ -371,6 +371,7 @@ function App() {
     setFile(null);
     setFileUploaded(false);
     setPredClick(false);
+    fileInputRef.current.value = "";
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
