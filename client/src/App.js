@@ -434,12 +434,7 @@ function App() {
           Upload a leaf image file to detect its species
         </p>
         <form onSubmit={handleSubmit}>
-          {
-            console.log(file)
-          }
-      
         <div style={{display: "flex", textAlign: "center", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%"}}>
-          
           <Card style={{width: "400px", height: "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none"}} />
           <div style={{marginLeft: "5%"}}>
             <label>
