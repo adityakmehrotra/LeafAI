@@ -461,22 +461,25 @@ function App() {
           </div>
           <div style={{marginRight: "5%"}}>
 	      <Card style={{width: "400px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px"}}>
-	        <div>Download Random Leaf Image</div>
-	        {loading ? (
-	          <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
-	            <span className="visually-hidden">Loading...</span>
-	          </Spinner>
-	        ) : (
-	          <div style={{ height: '32px', margin: '10px 0' }} />  // Maintain layout during loading
-	        )}
-	        <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
-	          Generate New Image
-	        </Button>
-	        <Button onClick={handleDownload} variant="success">
-	          Click to Download
-	        </Button>
-	        <input type="file" ref={fileInputRef} style={{ display: "none" }} />
-	      </Card>
+		  <div>Download Random Leaf Image</div>
+		  {loading ? (
+		    <>
+		      <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
+		        <span className="visually-hidden">Loading...</span>
+		      </Spinner>
+		      <div style={{ height: '32px' }} /> {/* Space added only when loading */}
+		    </>
+		  ) : (
+		    <div style={{ height: '10px' }} /> {/* Minimal space when not loading */}
+		  )}
+		  <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
+		    Generate New Image
+		  </Button>
+		  <Button onClick={handleDownload} variant="success">
+		    Click to Download
+		  </Button>
+		  <input type="file" ref={fileInputRef} style={{ display: "none" }} />
+		</Card>
 	    </div>
         </div>
         <div style={{textAlign: "center", justifyContent: "center", paddingTop: "2%", paddingBottom: "1%"}}>
