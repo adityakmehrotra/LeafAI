@@ -381,6 +381,7 @@ function App() {
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
+    setFile(file);
     setFilename(file.name);
     setFileUploaded(true);
   };
@@ -456,7 +457,7 @@ function App() {
                 type="file" 
                 name="file" 
                 className="hidden" 
-                onChange={(e) => {setFile(e.target.files[0]); handleFileUpload(e)}}
+                onChange={handleFileUpload(e)}
                 ref = {fileInputRef}
                 style={{textAlign: "center"}}
                 disabled={fileUploaded}
