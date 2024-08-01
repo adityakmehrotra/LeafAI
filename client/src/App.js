@@ -55,7 +55,7 @@ function App() {
   const fileInputRef = useRef(null);
   const [predClick, setPredClick] = useState(false);
   
-  const [filename, setFilename] = useState("No file Uploaded")
+  const [filename, setFilename] = useState("No file uploaded")
   const [fileUploaded, setFileUploaded] = useState(false);
   const [leafDetails, setLeafDetails] = useState([]);
 
@@ -326,7 +326,7 @@ function App() {
         if (!response.ok) {
             if (response.status === 429) { // Check if the rate limit has been exceeded
                 alert("You have exceeded the rate limit. Please wait a while before trying again.");
-		    handleFileReset();
+		handleFileReset();
             } else {
                 throw new Error('Server responded with status ' + response.status);
             }
@@ -348,8 +348,7 @@ function App() {
             setPredClick(true); // Display results only on valid conditions
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to predict the leaf species: ' + error.message);
+    	setFilename("No file uploaded");
         handleFileReset(); // Reset automatically on error
     } finally {
         setMLLoading(false);  // End loading regardless of the result
