@@ -314,6 +314,22 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setMLLoading(true);  // Start loading before the fetch operation
+
+    if (!file) {
+        alert("Please select a file before submitting.");
+        setMLLoading(false);
+        return;
+    }
+
+    // Validate file type explicitly for JPEG and PNG
+    const validImageTypes = ['image/jpeg', 'image/png'];
+    if (!validImageTypes.includes(file.type)) {
+        alert("Only JPEG and PNG image files are allowed. Please upload a valid image file.");
+        handleFileReset();
+        setMLLoading(false);
+        return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
@@ -326,10 +342,11 @@ function App() {
         if (!response.ok) {
             if (response.status === 429) { // Check if the rate limit has been exceeded
                 alert("You have exceeded the rate limit. Please wait a while before trying again.");
-		handleFileReset();
             } else {
                 throw new Error('Server responded with status ' + response.status);
             }
+            handleFileReset();
+            return;
         }
 
         const data = await response.json();
@@ -338,8 +355,8 @@ function App() {
             handleFileReset();
         } else if (data.Accuracy === 1) {
             setBadFile(true);
-            handleFileReset();
             alert("There was an issue with this image. Please use another one.");
+            handleFileReset();
         } else {
             setBadFile(false);
             setVal(data.Pred_Class);
@@ -348,12 +365,14 @@ function App() {
             setPredClick(true); // Display results only on valid conditions
         }
     } catch (error) {
-    	setFilename("No file chosen");
-        handleFileReset(); // Reset automatically on error
+        console.error('Error:', error);
+        alert('Failed to process the request: ' + error.message);
+        handleFileReset();
     } finally {
         setMLLoading(false);  // End loading regardless of the result
     }
 };
+
 
 
 // Add this loading indicator somewhere in your JSX, where it makes sense in your UI
