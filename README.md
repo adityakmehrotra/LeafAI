@@ -23,7 +23,7 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 - **High Generalization:** The slight gap between training and validation accuracy could be explored further. Techniques such as dropout, more data augmentation, or additional regularization might be employed to reduce any minor overfitting still occurring.
 - **Potential for Further Tuning:** Since the accuracies plateau, exploring other architectures or more complex models could potentially lead to improvements if higher accuracy is required. Alternatively, increasing the dataset size or diversity could help the model learn more generalized features.
 
-## LossGraph
+## Loss Graph
 
 ![image](https://github.com/adityakmehrotra/LeafAI/assets/24847438/405283fc-0c56-4bc6-8433-c4fb28af71cc)
 
@@ -107,4 +107,4 @@ Special thanks to AWS for hosting services.
 For any queries, you can reach out at `adi1.mehrotra@gmail.com`.
 
 ### Last Updated
-06/24/2024
+08/01/2024
