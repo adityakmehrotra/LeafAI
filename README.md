@@ -92,7 +92,7 @@ Open another terminal window and navigate to the client directory:
 npm start
 ```
 
-##### The application should now be running on http://localhost:3000.
+##### The application should now be running on http://localhost:8000.
 
 ### Usage
 1. **Upload an Image:** Navigate to the main page and upload a leaf image through the interface.
