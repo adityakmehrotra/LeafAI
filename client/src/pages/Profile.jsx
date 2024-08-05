@@ -1,42 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Button, Card, Collapse } from 'react-bootstrap';
 import { getUserUploads, deleteUserImage } from '../services/userService';
+import {
+  Acca_Sellowiana, Acer_Negundo, Acer_Palmaturu, Alnus_Sp, Arisarum_Vulgare, Castanea_Sativa, Celtis_Sp,
+  Chelidonium_Majus, Corylus_Avellana, Crataegus_Monogyna, Erodium_Sp, Euonymus_Japonicus, Fragaria_Vesca,
+  Fraxinus_Sp, Geranium_Sp, Hydrangea_Sp, Ilex_Aquifolium, Ilex_Perado_Ssp_Azorica, Magnolia_Grandiflora,
+  Magnolia_Soulangeana, Nerium_Oleander, Pinus_Sp, Polypodium_Vulgare, Populus_Alba, Populus_Nigra, Primula_Vulgaris,
+  Pseudosasa_Japonica, Quercus_Robur, Quercus_Suber, Salix_Atrocinerea, Schinus_Terebinthifolius, Taxus_Bacatta,
+  Tilia_Tomentosa, Urtica_Dioica
+} from '../leaf_images';
 
 const leafDetails = [
-  { index: 0, name: 'Acca Sellowiana' },
-  { index: 1, name: 'Acer Negundo' },
-  { index: 2, name: 'Acer Palmaturu' },
-  { index: 3, name: 'Alnus Sp' },
-  { index: 4, name: 'Arisarum Vulgare' },
-  { index: 5, name: 'Castanea Sativa' },
-  { index: 6, name: 'Celtis Sp' },
-  { index: 7, name: 'Chelidonium Majus' },
-  { index: 8, name: 'Corylus Avellana' },
-  { index: 9, name: 'Crataegus Monogyna' },
-  { index: 10, name: 'Erodium Sp' },
-  { index: 11, name: 'Euonymus Japonicus' },
-  { index: 12, name: 'Fragaria Vesca' },
-  { index: 13, name: 'Fraxinus Sp' },
-  { index: 14, name: 'Geranium Sp' },
-  { index: 15, name: 'Hydrangea Sp' },
-  { index: 16, name: 'Ilex Aquifolium' },
-  { index: 17, name: 'Ilex Perado Ssp Azorica' },
-  { index: 18, name: 'Magnolia Grandiflora' },
-  { index: 19, name: 'Magnolia Soulangeana' },
-  { index: 20, name: 'Nerium Oleander' },
-  { index: 21, name: 'Pinus Sp' },
-  { index: 22, name: 'Polypodium Vulgare' },
-  { index: 23, name: 'Populus Alba' },
-  { index: 24, name: 'Populus Nigra' },
-  { index: 25, name: 'Primula Vulgaris' },
-  { index: 26, name: 'Pseudosasa Japonica' },
-  { index: 27, name: 'Quercus Robur' },
-  { index: 28, name: 'Quercus Suber' },
-  { index: 29, name: 'Salix Atrocinerea' },
-  { index: 30, name: 'Schinus Terebinthifolius' },
-  { index: 31, name: 'Taxus Bacatta' },
-  { index: 32, name: 'Tilia Tomentosa' },
-  { index: 33, name: 'Urtica Dioica' }
+  { index: 0, name: 'Acca Sellowiana', image: Acca_Sellowiana },
+  { index: 1, name: 'Acer Negundo', image: Acer_Negundo },
+  { index: 2, name: 'Acer Palmaturu', image: Acer_Palmaturu },
+  { index: 3, name: 'Alnus Sp', image: Alnus_Sp },
+  { index: 4, name: 'Arisarum Vulgare', image: Arisarum_Vulgare },
+  { index: 5, name: 'Castanea Sativa', image: Castanea_Sativa },
+  { index: 6, name: 'Celtis Sp', image: Celtis_Sp },
+  { index: 7, name: 'Chelidonium Majus', image: Chelidonium_Majus },
+  { index: 8, name: 'Corylus Avellana', image: Corylus_Avellana },
+  { index: 9, name: 'Crataegus Monogyna', image: Crataegus_Monogyna },
+  { index: 10, name: 'Erodium Sp', image: Erodium_Sp },
+  { index: 11, name: 'Euonymus Japonicus', image: Euonymus_Japonicus },
+  { index: 12, name: 'Fragaria Vesca', image: Fragaria_Vesca },
+  { index: 13, name: 'Fraxinus Sp', image: Fraxinus_Sp },
+  { index: 14, name: 'Geranium Sp', image: Geranium_Sp },
+  { index: 15, name: 'Hydrangea Sp', image: Hydrangea_Sp },
+  { index: 16, name: 'Ilex Aquifolium', image: Ilex_Aquifolium },
+  { index: 17, name: 'Ilex Perado Ssp Azorica', image: Ilex_Perado_Ssp_Azorica },
+  { index: 18, name: 'Magnolia Grandiflora', image: Magnolia_Grandiflora },
+  { index: 19, name: 'Magnolia Soulangeana', image: Magnolia_Soulangeana },
+  { index: 20, name: 'Nerium Oleander', image: Nerium_Oleander },
+  { index: 21, name: 'Pinus Sp', image: Pinus_Sp },
+  { index: 22, name: 'Polypodium Vulgare', image: Polypodium_Vulgare },
+  { index: 23, name: 'Populus Alba', image: Populus_Alba },
+  { index: 24, name: 'Populus Nigra', image: Populus_Nigra },
+  { index: 25, name: 'Primula Vulgaris', image: Primula_Vulgaris },
+  { index: 26, name: 'Pseudosasa Japonica', image: Pseudosasa_Japonica },
+  { index: 27, name: 'Quercus Robur', image: Quercus_Robur },
+  { index: 28, name: 'Quercus Suber', image: Quercus_Suber },
+  { index: 29, name: 'Salix Atrocinerea', image: Salix_Atrocinerea },
+  { index: 30, name: 'Schinus Terebinthifolius', image: Schinus_Terebinthifolius },
+  { index: 31, name: 'Taxus Bacatta', image: Taxus_Bacatta },
+  { index: 32, name: 'Tilia Tomentosa', image: Tilia_Tomentosa },
+  { index: 33, name: 'Urtica Dioica', image: Urtica_Dioica }
 ];
 
 const Profile = ({ show, handleClose, username }) => {
@@ -85,6 +93,11 @@ const Profile = ({ show, handleClose, username }) => {
     return species ? species.name : 'Unknown Species';
   };
 
+  const getLeafImage = (index) => {
+    const leafImage = leafDetails.find((leaf) => leaf.index === index);
+    return leafImage.image;
+  };
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -98,17 +111,18 @@ const Profile = ({ show, handleClose, username }) => {
               const { label, style } = getAccuracyLabel(upload.Accuracy);
               const uploadDate = new Date(upload.upload_date).toLocaleDateString();
               const speciesName = getSpeciesName(upload.Pred_Class);
+              const leafImage = getLeafImage(upload.Pred_Class);
 
               return (
                 <Card key={index} style={{ marginBottom: '1rem', cursor: 'pointer' }}>
                   <Card.Header onClick={() => setExpandedCard(expandedCard === index ? null : index)}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div>
-                        <div style={{ fontWeight: 'bold' }}>Predicted Species: {speciesName}</div>
+                        <div style={{ fontWeight: 'bold' }}>{speciesName}</div>
                         <div>Date: {uploadDate}</div>
                       </div>
                       <Card.Img
-                        src={`https://leafai-api.adityakmehrotra.com/uploads/${username}/${upload.file_path.split('/').pop()}`}
+                        src={leafImage}
                         style={{ width: '20%', border: '2px solid #6A9955', borderRadius: '8px' }}
                       />
                     </div>
@@ -121,7 +135,7 @@ const Profile = ({ show, handleClose, username }) => {
                           style={{ width: '40%', border: '2px solid #6A9955', borderRadius: '8px', marginRight: '1rem' }}
                         />
                         <div style={{ width: '55%' }}>
-                          <div style={{ fontWeight: 'bold' }}>Predicted Species: {speciesName}</div>
+                          <div style={{ fontWeight: 'bold' }}>{speciesName}</div>
                           <div>Date: {uploadDate}</div>
                           <div style={{ ...style, fontWeight: 'bold', margin: '1rem 0' }}>{label}</div>
                           <Button variant="danger" onClick={() => { setSelectedUpload(upload); setShowDeleteModal(true); }}>

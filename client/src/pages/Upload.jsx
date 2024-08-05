@@ -37,6 +37,7 @@ function Upload({ loggedIn, username }) {
   const [badFile, setBadFile] = useState(false);
   const pageEndRef = useRef(null);
   const [file, setFile] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     setLeafDetails(prevList => [
@@ -279,11 +280,15 @@ function Upload({ loggedIn, username }) {
             description: "Better known as the stinging nettle, this plant is notable for its serrated leaves and tiny, stinging hairs that can cause irritation upon contact. Despite this, it is valued for its nutritional and medicinal properties and is often used in herbal remedies and cooking."
         },
       ]);
+
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [filename]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setMLLoading(true);  // Start loading before the fetch operation
+    setMLLoading(true);
 
     if (!file) {
         alert("Please select a file before submitting.");
@@ -317,14 +322,14 @@ function Upload({ loggedIn, username }) {
             setVal(data.Pred_Class);
             setPredClass(data.Pred_Class);
             setAccuracyValue(data.Accuracy);
-            setPredClick(true); // Display results only on valid conditions
+            setPredClick(true);
         }
     } catch (error) {
         console.error('Error:', error);
         alert('Failed to process the request: ' + error.message);
         handleFileReset();
     } finally {
-        setMLLoading(false);  // End loading regardless of the result
+        setMLLoading(false);
     }
   };
 
@@ -340,7 +345,6 @@ function Upload({ loggedIn, username }) {
     setFile(null);
     setFileUploaded(false);
     setPredClick(false);
-    fileInputRef.current.value = "";
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -357,13 +361,13 @@ function Upload({ loggedIn, username }) {
       const newImage = getRandImage();
       setSelectedImage(newImage);
       setLoading(false);
-    }, 1000); // Simulate loading for 1 second
+    }, 1000);
   };
 
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = selectedImage;
-    link.download = 'DownloadedImage.jpg'; // Force download as JPG
+    link.download = 'DownloadedImage.jpg';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -371,7 +375,7 @@ function Upload({ loggedIn, username }) {
   };
 
   return (
-    <div style={{ paddingBottom: "2rem" }}> {/* Add padding to the bottom of the container */}
+    <div style={{ paddingBottom: "2rem" }}>
       <h1>
         <div style={{ textAlign: "center", paddingTop: "1.5%" }}>
           LeafAI
@@ -382,18 +386,18 @@ function Upload({ loggedIn, username }) {
         Upload a leaf image file to detect its species
       </p>
       <form onSubmit={handleSubmit}>
-        <div style={{ display: "flex", textAlign: "center", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
-          <Card style={{ width: "250px", height: "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none" }} />
-          <div style={{ marginLeft: "5%" }}>
+        <div style={{ display: "flex", textAlign: "center", flexDirection: windowWidth < 1000 ? "column" : "row", alignItems: "center", justifyContent: "space-between", width: "100%", gap: windowWidth < 1000 ? "20px" : "0" }}>
+          <div style={{ width: "250px", height: windowWidth < 1000 ? "0px" : "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none" }} />
+          <div style={{ marginLeft: windowWidth < 1000 ? "0" : "5%" }}>
             <label>
-              <div style={{ witdh: "10px", justifyContent: "center" }}>
+              <div style={{ justifyContent: "center" }}>
                 <svg
                   className="w-8 h-8"
                   fill="green"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                 >
-                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04 .74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
               </div>
               <input
@@ -407,7 +411,7 @@ function Upload({ loggedIn, username }) {
               />
             </label>
           </div>
-          <div style={{ marginRight: "5%" }}>
+          <div style={{ marginRight: windowWidth < 1000 ? "0" : "5%", paddingBottom: windowWidth < 1000 ? "20px" : "0px" }}>
             <Card style={{ width: "fit-content", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px", minWidth: "250px" }}>
               <div style={{ textAlign: "center", width: "100%", marginBottom: "10px" }}>Download a Leaf Image</div>
               {loading ? (
@@ -430,12 +434,12 @@ function Upload({ loggedIn, username }) {
             </Card>
           </div>
         </div>
-        <div style={{ textAlign: "center", justifyContent: "center", paddingTop: "2%", paddingBottom: "1%" }}>
+        <div style={{ textAlign: "center", justifyContent: "center", paddingTop: windowWidth < 1000 ? "20px" : "2%", paddingBottom: "1%" }}>
           <button className="btn btn-outline-success" type="submit" disabled={!fileUploaded} onClick={() => setPredClick(true)} style={{ fontSize: "20px" }}>
             {(!fileUploaded) ? 'Please Upload File Above' : 'Predict'}
           </button>
         </div>
-        <div style={{ textAlign: "center", justifyContent: "center", paddingBottom: "2rem" }}> {/* Add padding to the bottom of the page */}
+        <div style={{ textAlign: "center", justifyContent: "center", paddingBottom: "2rem" }}>
           <button type="button" className="btn btn-outline-danger" disabled={!fileUploaded} onClick={() => handleFileReset()} style={{ fontSize: "20px" }}>
             Reset
           </button>
@@ -457,7 +461,7 @@ function Upload({ loggedIn, username }) {
         )}
       </div>
     </div>
-  );  
+  );
 }
 
 export default Upload;

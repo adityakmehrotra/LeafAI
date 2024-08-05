@@ -32,6 +32,14 @@ function App() {
   const pageEndRef = useRef(null);
 
   useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+      setLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
   }, [filename]);
 
   const [file, setFile] = useState(null);
@@ -135,6 +143,7 @@ function App() {
         setUsername(username);
         setShowModal(false);
         setLoginError("");
+        localStorage.setItem('username', username); // Save username to local storage
       } else {
         setLoginError("Incorrect username and/or password");
       }
@@ -174,6 +183,7 @@ function App() {
         setLoggedIn(true);
         setUsername(username);
         setShowModal(false);
+        localStorage.setItem('username', username); // Save username to local storage
       } else {
         setLoginError(data.error || "Sign up failed");
       }
@@ -185,6 +195,7 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
     setUsername('UNDEFINED');
+    localStorage.removeItem('username'); // Remove username from local storage
   };
 
   const handleDeleteAccount = async () => {
