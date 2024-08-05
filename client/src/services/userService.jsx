@@ -95,3 +95,25 @@ export const registerUser = async (userData) => {
     throw error;
   }
 };
+
+export const deleteUploadedFile = async (filename, username) => {
+    try {
+      const response = await fetch("https://leafai-api.adityakmehrotra.com/delete_file", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ filename, username }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to delete file");
+      }
+  
+      return await response.json();
+    } catch (error) {
+      console.error("Error deleting file:", error);
+      throw error;
+    }
+  };
+  

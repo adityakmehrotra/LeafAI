@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Button, Spinner, Modal, Form, Dropdown } from "react-bootstrap";
 import Upload from './pages/Upload';
 import Profile from './pages/Profile'; // Import the new Profile component
-import { getUserInfo, registerUser, getUserUploads, deleteUser, deleteUserImage, checkUsername, checkCredentials } from './services/userService';
+import { getUserInfo, registerUser, getUserUploads, deleteUser, deleteUserImage, checkUsername, checkCredentials, deleteUploadedFile } from './services/userService'; // Import the new delete function
 
 function App() {
   const [val, setVal] = useState("Upload image to predict");
@@ -10,7 +10,7 @@ function App() {
   const [accuracyValue, setAccuracyValue] = useState(0);
   const fileInputRef = useRef(null);
   const [predClick, setPredClick] = useState(false);
-  
+
   const [filename, setFilename] = useState("No file chosen");
   const [fileUploaded, setFileUploaded] = useState(false);
   const [leafDetails, setLeafDetails] = useState([]);
@@ -39,28 +39,27 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-  }, [filename]);
+  useEffect(() => {}, [filename]);
 
   const [file, setFile] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setMLLoading(true);  // Start loading before the fetch operation
+    setMLLoading(true); // Start loading before the fetch operation
 
     if (!file) {
-        alert("Please select a file before submitting.");
-        setMLLoading(false);
-        return;
+      alert("Please select a file before submitting.");
+      setMLLoading(false);
+      return;
     }
 
     // Validate file type explicitly for JPEG and PNG
-    const validImageTypes = ['image/jpeg', 'image/png'];
+    const validImageTypes = ["image/jpeg", "image/png"];
     if (!validImageTypes.includes(file.type)) {
-        alert("Only JPEG and PNG image files are allowed. Please upload a valid image file.");
-        handleFileReset();
-        setMLLoading(false);
-        return;
+      alert("Only JPEG and PNG image files are allowed. Please upload a valid image file.");
+      handleFileReset();
+      setMLLoading(false);
+      return;
     }
 
     const formData = new FormData();
@@ -68,42 +67,45 @@ function App() {
     formData.append("username", loggedIn ? username : "UNDEFINED");
 
     try {
-        const response = await fetch("https://leafai-api.adityakmehrotra.com/upload_image", {
-            method: 'POST',
-            body: formData
-        });
+      const response = await fetch("https://leafai-api.adityakmehrotra.com/upload_image", {
+        method: "POST",
+        body: formData,
+      });
 
-        if (!response.ok) {
-            if (response.status === 429) { // Check if the rate limit has been exceeded
-                alert("You have exceeded the rate limit. Please wait a while before trying again.");
-            } else {
-                throw new Error('Server responded with status ' + response.status);
-            }
-            handleFileReset();
-            return;
-        }
-
-        const data = await response.json();
-        if (data.error && data.error === "File is not an image") {
-            alert("The file you uploaded is not an image. Please upload a valid image file.");
-            handleFileReset();
-        } else if (data.Accuracy === 1) {
-            setBadFile(true);
-            alert("There was an issue with this image. Please use another one.");
-            handleFileReset();
+      if (!response.ok) {
+        if (response.status === 429) {
+          // Check if the rate limit has been exceeded
+          alert("You have exceeded the rate limit. Please wait a while before trying again.");
         } else {
-            setBadFile(false);
-            setVal(data.Pred_Class);
-            setPredClass(data.Pred_Class);
-            setAccuracyValue(data.Accuracy);
-            setPredClick(true); // Display results only on valid conditions
+          throw new Error("Server responded with status " + response.status);
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Something went wrong :(');
         handleFileReset();
+        return;
+      }
+
+      const data = await response.json();
+      if (data.error && data.error === "File is not an image") {
+        alert("The file you uploaded is not an image. Please upload a valid image file.");
+        handleFileReset();
+      } else if (data.Accuracy >= 0.999) {
+        setBadFile(true);
+        alert("There was an issue with this image. Please use another one.");
+        await deleteUploadedFile(file.name, username); // Automatically delete the file from the database
+        handleFileReset();
+      } else {
+        setBadFile(false);
+        setVal(data.Pred_Class);
+        setPredClass(data.Pred_Class);
+        setAccuracyValue(data.Accuracy);
+        setPredClick(true); // Display results only on valid conditions
+        // Add file to user uploads here if no issue with the file
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong :(");
+      handleFileReset();
     } finally {
-        setMLLoading(false);  // End loading regardless of the result
+      setMLLoading(false); // End loading regardless of the result
     }
   };
 
@@ -131,11 +133,11 @@ function App() {
     const password = e.target.password.value;
     try {
       const response = await fetch("https://leafai-api.adityakmehrotra.com/check_login", {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password }),
       });
       const data = await response.json();
       if (data.valid) {
@@ -143,7 +145,7 @@ function App() {
         setUsername(username);
         setShowModal(false);
         setLoginError("");
-        localStorage.setItem('username', username); // Save username to local storage
+        localStorage.setItem("username", username); // Save username to local storage
       } else {
         setLoginError("Incorrect username and/or password");
       }
@@ -168,11 +170,11 @@ function App() {
 
     try {
       const response = await fetch("https://leafai-api.adityakmehrotra.com/register", {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ first_name: firstName, last_name: lastName, email, username, password })
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, email, username, password }),
       });
 
       const data = await response.json();
@@ -183,7 +185,7 @@ function App() {
         setLoggedIn(true);
         setUsername(username);
         setShowModal(false);
-        localStorage.setItem('username', username); // Save username to local storage
+        localStorage.setItem("username", username); // Save username to local storage
       } else {
         setLoginError(data.error || "Sign up failed");
       }
@@ -194,8 +196,8 @@ function App() {
 
   const handleLogout = () => {
     setLoggedIn(false);
-    setUsername('UNDEFINED');
-    localStorage.removeItem('username'); // Remove username from local storage
+    setUsername("UNDEFINED");
+    localStorage.removeItem("username"); // Remove username from local storage
   };
 
   const handleDeleteAccount = async () => {
@@ -204,19 +206,21 @@ function App() {
       handleLogout();
       setShowDeleteModal(false);
     } catch (error) {
-      console.error('Error deleting account:', error);
+      console.error("Error deleting account:", error);
     }
   };
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "1rem" }}>
         {loggedIn && (
-          <Button variant="primary" onClick={() => setShowProfileModal(true)} style={{ backgroundColor: '#228B22', borderColor: '#228B22' }}>Profile</Button>
+          <Button variant="primary" onClick={() => setShowProfileModal(true)} style={{ backgroundColor: "#228B22", borderColor: "#228B22" }}>
+            Profile
+          </Button>
         )}
-        <div style={{ marginLeft: 'auto' }}>
+        <div style={{ marginLeft: "auto" }}>
           <Dropdown>
-            <Dropdown.Toggle variant="primary" id="dropdown-basic" style={{ backgroundColor: '#228B22', borderColor: '#228B22' }}>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic" style={{ backgroundColor: "#228B22", borderColor: "#228B22" }}>
               Account
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -264,23 +268,23 @@ function App() {
               </Form.Group>
               <Form.Group controlId="formPassword">
                 <Form.Label>Password</Form.Label>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" name="password" required />
-                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: '5px' }}>
+                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: "5px" }}>
                     {showPassword ? "Hide" : "Show"}
                   </Button>
                 </div>
               </Form.Group>
               <Form.Group controlId="formConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <Form.Control type={showPassword ? "text" : "password"} placeholder="Confirm Password" name="confirmPassword" required />
-                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: '5px' }}>
+                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: "5px" }}>
                     {showPassword ? "Hide" : "Show"}
                   </Button>
                 </div>
               </Form.Group>
-              <Button variant="primary" type="submit" style={{ backgroundColor: '#228B22', borderColor: '#228B22', marginTop: '10px' }}>
+              <Button variant="primary" type="submit" style={{ backgroundColor: "#228B22", borderColor: "#228B22", marginTop: "10px" }}>
                 Sign Up
               </Button>
             </Form>
@@ -292,19 +296,19 @@ function App() {
               </Form.Group>
               <Form.Group controlId="formPassword">
                 <Form.Label>Password</Form.Label>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" name="password" required />
-                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: '5px' }}>
+                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: "5px" }}>
                     {showPassword ? "Hide" : "Show"}
                   </Button>
                 </div>
               </Form.Group>
-              <Button variant="primary" type="submit" style={{ backgroundColor: '#228B22', borderColor: '#228B22', marginTop: '10px' }}>
+              <Button variant="primary" type="submit" style={{ backgroundColor: "#228B22", borderColor: "#228B22", marginTop: "10px" }}>
                 Login
               </Button>
             </Form>
           )}
-          {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
+          {loginError && <p style={{ color: "red" }}>{loginError}</p>}
           <Button variant="link" onClick={() => setIsSignUp(!isSignUp)}>
             {isSignUp ? "Already have an account? Login" : "Don't have an account? Sign Up"}
           </Button>
@@ -315,9 +319,7 @@ function App() {
         <Modal.Header closeButton>
           <Modal.Title>Confirm Delete Account</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          Are you sure you want to delete your account? This action cannot be undone.
-        </Modal.Body>
+        <Modal.Body>Are you sure you want to delete your account? This action cannot be undone.</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
             Cancel

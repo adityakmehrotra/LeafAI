@@ -16,7 +16,7 @@ export const uploadImage = async (formData, username = 'UNDEFINED') => {
       alert("You have exceeded the rate limit. Please wait a while before trying again.");
       return;
     }
-
+    console.log(response.data);
     return response.data;
   } catch (error) {
     if (error.response && error.response.status === 400) {
