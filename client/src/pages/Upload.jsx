@@ -371,93 +371,93 @@ function Upload({ loggedIn, username }) {
   };
 
   return (
-    <div>
-        <h1>
-        <div style={{textAlign: "center", paddingTop: "1.5%"}}>
-            LeafAI
+    <div style={{ paddingBottom: "2rem" }}> {/* Add padding to the bottom of the container */}
+      <h1>
+        <div style={{ textAlign: "center", paddingTop: "1.5%" }}>
+          LeafAI
         </div>
-        </h1>
-        
-        <p style={{textAlign: "center", fontSize: "24px"}}>
+      </h1>
+  
+      <p style={{ textAlign: "center", fontSize: "24px" }}>
         Upload a leaf image file to detect its species
-        </p>
-        <form onSubmit={handleSubmit}>
-        <div style={{display: "flex", textAlign: "center", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%"}}>
-        <Card style={{width: "400px", height: "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none"}} />
-        <div style={{marginLeft: "5%"}}>
+      </p>
+      <form onSubmit={handleSubmit}>
+        <div style={{ display: "flex", textAlign: "center", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+          <Card style={{ width: "250px", height: "200px", backgroundColor: "#ebfff0", borderRadius: "10px", display: "flex", border: "none" }} />
+          <div style={{ marginLeft: "5%" }}>
             <label>
-            <div style={{witdh: "10px", justifyContent: "center"}}>
+              <div style={{ witdh: "10px", justifyContent: "center" }}>
                 <svg
-                className="w-8 h-8"
-                fill="green"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
+                  className="w-8 h-8"
+                  fill="green"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
                 >
-                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                 </svg>
-            </div>
-                <input 
-                type="file" 
-                name="file" 
-                className="hidden" 
+              </div>
+              <input
+                type="file"
+                name="file"
+                className="hidden"
                 onChange={(e) => handleFileUpload(e)}
-                ref = {fileInputRef}
-                style={{textAlign: "center"}}
+                ref={fileInputRef}
+                style={{ textAlign: "center" }}
                 disabled={fileUploaded}
-                />
+              />
             </label>
+          </div>
+          <div style={{ marginRight: "5%" }}>
+            <Card style={{ width: "fit-content", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px", minWidth: "250px" }}>
+              <div style={{ textAlign: "center", width: "100%", marginBottom: "10px" }}>Download a Leaf Image</div>
+              {loading ? (
+                <>
+                  <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
+                    <span className="visually-hidden">Loading...</span>
+                  </Spinner>
+                  <div style={{ height: '10px' }} />
+                </>
+              ) : (
+                <div style={{ height: '10px' }} />
+              )}
+              <Button onClick={handleGenerateImage} variant="info" style={{ marginBottom: "10px", width: "80%" }}>
+                Get New Image
+              </Button>
+              <Button onClick={handleDownload} variant="success" style={{ width: "80%" }}>
+                Click to Download
+              </Button>
+              <input type="file" ref={fileInputRef} style={{ display: "none" }} />
+            </Card>
+          </div>
         </div>
-        <div style={{marginRight: "5%"}}>
-        <Card style={{width: "400px", backgroundColor: "#c7ffd5", borderColor: "#808080", borderRadius: "10px", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", fontSize: "18px"}}>
-        <div>Download a Leaf Image</div>
-        {loading ? (
-            <>
-            <Spinner animation="border" role="status" style={{ alignSelf: 'center', marginTop: '10px', marginBottom: '10px' }}>
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
-            <div style={{ height: '10px' }} />
-            </>
-        ) : (
-            <div style={{ height: '10px' }} />
-        )}
-        <Button onClick={handleGenerateImage} variant="info" style={{marginBottom: "10px"}}>
-            Get New Image
-        </Button>
-        <Button onClick={handleDownload} variant="success">
-            Click to Download
-        </Button>
-        <input type="file" ref={fileInputRef} style={{ display: "none" }} />
-        </Card>
-        </div>
-        </div>
-        <div style={{textAlign: "center", justifyContent: "center", paddingTop: "2%", paddingBottom: "1%"}}>
-        <button class="btn btn-outline-success" type="submit" disabled={!fileUploaded} onClick={() => setPredClick(true)} style={{fontSize: "20px"}}>
+        <div style={{ textAlign: "center", justifyContent: "center", paddingTop: "2%", paddingBottom: "1%" }}>
+          <button className="btn btn-outline-success" type="submit" disabled={!fileUploaded} onClick={() => setPredClick(true)} style={{ fontSize: "20px" }}>
             {(!fileUploaded) ? 'Please Upload File Above' : 'Predict'}
-        </button>
+          </button>
         </div>
-        <div style={{textAlign: "center", justifyContent: "center"}}>
-        <button type="button" class="btn btn-outline-danger" disabled={!fileUploaded} onClick={() => handleFileReset()} style={{fontSize: "20px"}}>
+        <div style={{ textAlign: "center", justifyContent: "center", paddingBottom: "2rem" }}> {/* Add padding to the bottom of the page */}
+          <button type="button" className="btn btn-outline-danger" disabled={!fileUploaded} onClick={() => handleFileReset()} style={{ fontSize: "20px" }}>
             Reset
-        </button>
+          </button>
         </div>
-        </form>
-    <div>
+      </form>
+      <div>
         {mlLoading ? (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px', backgroundColor: "#ebfff0" }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px', backgroundColor: "#ebfff0" }}>
             <Spinner animation="border" role="status" style={{ width: '3rem', height: '3rem' }}>
-                <span className="visually-hidden">Loading...</span>
+              <span className="visually-hidden">Loading...</span>
             </Spinner>
-            </div>
+          </div>
         ) : (
-            !badFile && (
+          !badFile && (
             <div ref={pageEndRef} style={{ backgroundColor: "#ebfff0", display: predClick ? "block" : "none", height: '200px' }}>
-                <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
+              <Leaf leafDetails={leafDetails} val={val} predClass={predClass} accuracyValue={accuracyValue} fileUploaded={predClick} resetUpload={handleFileReset} />
             </div>
-            )
+          )
         )}
-        </div>
+      </div>
     </div>
-  );
+  );  
 }
 
 export default Upload;

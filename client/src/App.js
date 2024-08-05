@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Card, Button, Spinner, Modal, Form } from "react-bootstrap";
+import { Card, Button, Spinner, Modal, Form, Dropdown } from "react-bootstrap";
 import Upload from './pages/Upload';
-import { getUserInfo, registerUser } from './services/userService';
+import Profile from './pages/Profile'; // Import the new Profile component
+import { getUserInfo, registerUser, getUserUploads, deleteUser, deleteUserImage, checkUsername, checkCredentials } from './services/userService';
 
 function App() {
   const [val, setVal] = useState("Upload image to predict");
@@ -25,6 +26,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('UNDEFINED');
   const [loginError, setLoginError] = useState("");
+  const [showProfileModal, setShowProfileModal] = useState(false); // Profile modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // Delete account modal state
 
   const pageEndRef = useRef(null);
 
@@ -119,9 +122,15 @@ function App() {
     const username = e.target.username.value;
     const password = e.target.password.value;
     try {
-      const response = await fetch("https://leafai-api.adityakmehrotra.com/get_user_info?username=" + username);
+      const response = await fetch("https://leafai-api.adityakmehrotra.com/check_login", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
       const data = await response.json();
-      if (data.user_info && data.user_info.password === password) {
+      if (data.valid) {
         setLoggedIn(true);
         setUsername(username);
         setShowModal(false);
@@ -154,13 +163,17 @@ function App() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ first_name: firstName, last_name: lastName, email: email, username: username, password: password })
+        body: JSON.stringify({ first_name: firstName, last_name: lastName, email, username, password })
       });
 
       const data = await response.json();
       if (response.status === 201) {
         setIsSignUp(false);
         setLoginError("");
+        // Automatically log in after sign up
+        setLoggedIn(true);
+        setUsername(username);
+        setShowModal(false);
       } else {
         setLoginError(data.error || "Sign up failed");
       }
@@ -169,15 +182,51 @@ function App() {
     }
   };
 
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setUsername('UNDEFINED');
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      await deleteUser(username);
+      handleLogout();
+      setShowDeleteModal(false);
+    } catch (error) {
+      console.error('Error deleting account:', error);
+    }
+  };
+
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
-        {loggedIn ? (
-          <Button variant="primary">Profile</Button>
-        ) : (
-          <Button variant="primary" onClick={() => setShowModal(true)}>Account</Button>
+        {loggedIn && (
+          <Button variant="primary" onClick={() => setShowProfileModal(true)} style={{ backgroundColor: '#228B22', borderColor: '#228B22' }}>Profile</Button>
         )}
+        <div style={{ marginLeft: 'auto' }}>
+          <Dropdown>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic" style={{ backgroundColor: '#228B22', borderColor: '#228B22' }}>
+              Account
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              {!loggedIn && (
+                <>
+                  <Dropdown.Item onClick={() => { setIsSignUp(false); setShowModal(true); }}>Login</Dropdown.Item>
+                  <Dropdown.Item onClick={() => { setIsSignUp(true); setShowModal(true); }}>Sign Up</Dropdown.Item>
+                </>
+              )}
+              {loggedIn && (
+                <>
+                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  <Dropdown.Item onClick={() => setShowDeleteModal(true)}>Delete Account</Dropdown.Item>
+                </>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </div>
+
+      <Profile show={showProfileModal} handleClose={() => setShowProfileModal(false)} username={username} />
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
@@ -204,16 +253,23 @@ function App() {
               </Form.Group>
               <Form.Group controlId="formPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" name="password" required />
-                <Button variant="secondary" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? "Hide" : "Show"}
-                </Button>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" name="password" required />
+                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: '5px' }}>
+                    {showPassword ? "Hide" : "Show"}
+                  </Button>
+                </div>
               </Form.Group>
               <Form.Group controlId="formConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type={showPassword ? "text" : "password"} placeholder="Confirm Password" name="confirmPassword" required />
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Form.Control type={showPassword ? "text" : "password"} placeholder="Confirm Password" name="confirmPassword" required />
+                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: '5px' }}>
+                    {showPassword ? "Hide" : "Show"}
+                  </Button>
+                </div>
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" style={{ backgroundColor: '#228B22', borderColor: '#228B22', marginTop: '10px' }}>
                 Sign Up
               </Button>
             </Form>
@@ -225,12 +281,14 @@ function App() {
               </Form.Group>
               <Form.Group controlId="formPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" name="password" required />
-                <Button variant="secondary" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? "Hide" : "Show"}
-                </Button>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Form.Control type={showPassword ? "text" : "password"} placeholder="Password" name="password" required />
+                  <Button variant="secondary" onClick={() => setShowPassword(!showPassword)} style={{ marginLeft: '5px' }}>
+                    {showPassword ? "Hide" : "Show"}
+                  </Button>
+                </div>
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" style={{ backgroundColor: '#228B22', borderColor: '#228B22', marginTop: '10px' }}>
                 Login
               </Button>
             </Form>
@@ -240,6 +298,23 @@ function App() {
             {isSignUp ? "Already have an account? Login" : "Don't have an account? Sign Up"}
           </Button>
         </Modal.Body>
+      </Modal>
+
+      <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Delete Account</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete your account? This action cannot be undone.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleDeleteAccount}>
+            Delete Account
+          </Button>
+        </Modal.Footer>
       </Modal>
 
       <Upload loggedIn={loggedIn} username={username} />
