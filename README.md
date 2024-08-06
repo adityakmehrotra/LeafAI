@@ -10,6 +10,8 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 - **Species Prediction**: The application predicts the species of the leaf and provides details about it.
 - **Accuracy and Loss Visualization**: Displays training accuracy and loss graphs to demonstrate the model's performance.
 - **Sample Image Download**: Users without their own images can download a random leaf image from the application to test the functionality.
+- **User Authentication**: Users can create accounts and log in to access personalized features.
+- **History Tracking**: Logged-in users can view their previously uploaded leaf images and the corresponding species predictions, allowing them to track their history and review past results.
 
 ### Accuracy Graph
 
