@@ -56,7 +56,8 @@
 
 ## About The Project
 
-![Annotation 2024-08-06 135446](https://github.com/user-attachments/assets/5944e50e-a576-41d6-9eb3-9e0aaa013f32)
+![image](https://github.com/user-attachments/assets/7a7b8f96-a10a-4481-8f17-1a232e109aa4)
+
 
 
 ### Overview
