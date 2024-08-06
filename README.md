@@ -27,17 +27,17 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 ## Built With
 
 ### Frontend
-* [![React][React.js]][React-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![React][React.js]][React-url]
+[![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 ### Backend
-* [![Flask][Flask.palletsprojects.com]][Flask-url]
+[![Flask][Flask.palletsprojects.com]][Flask-url]
 
 ### Machine Learning
-* [![TensorFlow][TensorFlow.org]][TensorFlow-url]
+[![TensorFlow][TensorFlow.org]][TensorFlow-url]
 
 ### Database
-* [![MongoDB][MongoDB.com]][MongoDB-url]
+[![MongoDB][MongoDB.com]][MongoDB-url]
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
