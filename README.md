@@ -42,7 +42,13 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 ### Data Source
 The training data for the machine learning model was primarily sourced from the UC Irvine Public Dataset, among other online resources. This rich dataset provides a diverse array of leaf images, which has been instrumental in training our model with high precision.
 
-## Tech Stack
+## Built With
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Flask][[flask.palletsprojects.com]][Flask-url]
+* [![TensorFlow][TensorFlow.org]][TensorFlow-url]
+* [![MongoDB][MongoDB.com]][MongoDB-url]
 - **Frontend**: React.js
 - **Backend**: Flask
 - **Machine Learning**: TensorFlow Sequential ML Model
