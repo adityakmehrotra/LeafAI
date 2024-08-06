@@ -364,15 +364,24 @@ function Upload({ loggedIn, username }) {
     }, 1000);
   };
 
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = selectedImage;
-    link.download = 'DownloadedImage.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setDownloadButtonDisabled(true);
-  };
+  const handleDownload = async () => {
+    try {
+        const imageFetch = await fetch(selectedImage);
+        const imageBlob = await imageFetch.blob();
+        const imageURL = URL.createObjectURL(imageBlob);
+
+        const link = document.createElement('a');
+        link.href = imageURL;
+        link.setAttribute('download', 'DownloadedImage.jpg');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(imageURL);  // Clean up the URL object
+    } catch (error) {
+        console.error('Failed to download the image:', error);
+    }
+};
+
 
   return (
     <div style={{ paddingBottom: "2rem" }}>
