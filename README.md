@@ -38,15 +38,42 @@
         <li><a href="#overview">Overview</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#deployment">Deployment</a></li>
-        <li><a href="#graphs">Graphs</a></li>
-        <li><a href="#built-with">Built With</a></li>
+        <li>
+          <a href="#graphs">Graphs</a>
+          <ul>
+            <li><a href="#accuracy-graph">Accuracy Graph</a></li>
+            <li><a href="#loss-graph">Loss Graph</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#built-with">Built With</a>
+          <ul>
+            <li><a href="#frontend">Frontend</a></li>
+            <li><a href="#backend">Backend</a></li>
+            <li><a href="#deployment-and-authentication">Deployment and Authentication</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li>
+          <a href="#installation">Installation</a>
+          <ul>
+            <li><a href="#clone-the-repository">Clone the Repository</a></li>
+            <li><a href="#install-backend-dependencies">Install Backend Dependencies</a></li>
+            <li><a href="#install-backend-dependencies">Install Frontend Dependencies</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#installation">Running the Application</a>
+          <ul>
+            <li><a href="start-the-flask-backend">Start the Flask Backend</a></li>
+            <li><a href="start-the-react-fronted">Start the React Frontend</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -60,7 +87,7 @@
 
 # About The Project
 
-![LeafAI (1)](https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263)
+![LeafAI](https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263)[https://leafai.adityakmehrotra.com]
 
 [![React][React.js]][React-url]
 [![Flask][Flask.palletsprojects.com]][Flask-url]
