@@ -56,8 +56,6 @@
 
 ## About The Project
 
-![image](https://github.com/user-attachments/assets/7a7b8f96-a10a-4481-8f17-1a232e109aa4)
-
 ![image](https://github.com/user-attachments/assets/cea4736b-739c-45d9-a032-66390bdd18ee)
 
 ### Overview
