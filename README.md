@@ -167,7 +167,12 @@ Distributed under the MIT License. See for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
+
 For any queries, you can reach out at `adi1.mehrotra@gmail.com`.
+
+Project Website: https://leafai.adityakmehrotra.com
+
+Project Repo: https://github.com/adityakmehrotra/LeafAI
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
