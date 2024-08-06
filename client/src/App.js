@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Card, Button, Spinner, Modal, Form, Dropdown } from "react-bootstrap";
 import Upload from './pages/Upload';
-import Profile from './pages/Profile'; // Import the new Profile component
+import Profile from './pages/Profile';
 import { getUserInfo, registerUser, getUserUploads, deleteUser, deleteUserImage, checkUsername, checkCredentials, deleteUploadedFile } from './services/userService'; // Import the new delete function
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('UNDEFINED');
   const [loginError, setLoginError] = useState("");
-  const [showProfileModal, setShowProfileModal] = useState(false); // Profile modal state
-  const [showDeleteModal, setShowDeleteModal] = useState(false); // Delete account modal state
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const pageEndRef = useRef(null);
 
@@ -45,7 +45,7 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setMLLoading(true); // Start loading before the fetch operation
+    setMLLoading(true);
 
     if (!file) {
       alert("Please select a file before submitting.");
@@ -53,7 +53,6 @@ function App() {
       return;
     }
 
-    // Validate file type explicitly for JPEG and PNG
     const validImageTypes = ["image/jpeg", "image/png"];
     if (!validImageTypes.includes(file.type)) {
       alert("Only JPEG and PNG image files are allowed. Please upload a valid image file.");
@@ -74,7 +73,6 @@ function App() {
 
       if (!response.ok) {
         if (response.status === 429) {
-          // Check if the rate limit has been exceeded
           alert("You have exceeded the rate limit. Please wait a while before trying again.");
         } else {
           throw new Error("Server responded with status " + response.status);
@@ -90,22 +88,21 @@ function App() {
       } else if (data.Accuracy >= 0.999) {
         setBadFile(true);
         alert("There was an issue with this image. Please use another one.");
-        await deleteUploadedFile(file.name, username); // Automatically delete the file from the database
+        await deleteUploadedFile(file.name, username);
         handleFileReset();
       } else {
         setBadFile(false);
         setVal(data.Pred_Class);
         setPredClass(data.Pred_Class);
         setAccuracyValue(data.Accuracy);
-        setPredClick(true); // Display results only on valid conditions
-        // Add file to user uploads here if no issue with the file
+        setPredClick(true);
       }
     } catch (error) {
       console.error("Error:", error);
       alert("Something went wrong :(");
       handleFileReset();
     } finally {
-      setMLLoading(false); // End loading regardless of the result
+      setMLLoading(false);
     }
   };
 
@@ -145,7 +142,7 @@ function App() {
         setUsername(username);
         setShowModal(false);
         setLoginError("");
-        localStorage.setItem("username", username); // Save username to local storage
+        localStorage.setItem("username", username);
       } else {
         setLoginError("Incorrect username and/or password");
       }
@@ -181,11 +178,10 @@ function App() {
       if (response.status === 201) {
         setIsSignUp(false);
         setLoginError("");
-        // Automatically log in after sign up
         setLoggedIn(true);
         setUsername(username);
         setShowModal(false);
-        localStorage.setItem("username", username); // Save username to local storage
+        localStorage.setItem("username", username);
       } else {
         setLoginError(data.error || "Sign up failed");
       }
@@ -197,7 +193,7 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
     setUsername("UNDEFINED");
-    localStorage.removeItem("username"); // Remove username from local storage
+    localStorage.removeItem("username");
   };
 
   const handleDeleteAccount = async () => {
