@@ -35,8 +35,6 @@ function Leaf(props) {
       }
     }, [props]);
 
-
-
     const handleButtonClick = () => {
         setShowModal(true);
     };
@@ -64,7 +62,6 @@ function Leaf(props) {
                     </div>
                 )}
             </Card>
-
             <Modal show={showModal} onHide={handleCloseModal} centered>
               <Modal.Header closeButton>
                 <Modal.Title>Accuracy Information</Modal.Title>
