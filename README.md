@@ -32,15 +32,12 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 
 ### Backend
 [![Flask][Flask.palletsprojects.com]][Flask-url]
-
-### Machine Learning
 [![TensorFlow][TensorFlow.org]][TensorFlow-url]
-
-### Database
 [![MongoDB][MongoDB.com]][MongoDB-url]
 
-### Deployment
+### Deployment and Authentication
 [![AWS][AWS.com]][AWS-url]
+[![OAuth][OAuth.com]][OAuth-url]
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
@@ -54,6 +51,15 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 [MongoDB-url]: https://www.mongodb.com/
 [AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
 [AWS-url]: https://aws.amazon.com/
+[OAuth.com]: https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=oauth&logoColor=white
+[OAuth-url]: https://oauth.net/
+
+### Deployment
+LeafAI is deployed using various AWS services, including:
+- **AWS Elastic Beanstalk (EC2 Instance):** For deploying the Flask backend.
+- **AWS Amplify:** For continuous deployment and hosting of the React frontend.
+- **AWS Route 53 and Certificate Manager:** For domain name management.
+- **AWS S3:** For storing static assets and user-uploaded images.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
