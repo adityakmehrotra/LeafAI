@@ -35,6 +35,10 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#graphs">Graphs</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -54,14 +58,14 @@
   </ol>
 </details>
 
-## About The Project
+# About The Project
 
 ![image](https://github.com/user-attachments/assets/cea4736b-739c-45d9-a032-66390bdd18ee)
 
-### Overview
+## Overview
 LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. The application uses MongoDB to manage and store user data and prediction history efficiently. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
 
-### Features
+## Features
 - **Image Upload**: Users can upload images of leaves for species identification.
 - **Species Prediction**: The application predicts the species of the leaf and provides details about it.
 - **Accuracy and Loss Visualization**: Displays training accuracy and loss graphs to demonstrate the model's performance.
@@ -69,12 +73,14 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 - **User Authentication**: Users can create accounts and log in to access personalized features.
 - **History Tracking**: Logged-in users can view their previously uploaded leaf images and the corresponding species predictions, allowing them to track their history and review past results.
 
-### Deployment
+## Deployment
 LeafAI is deployed using various AWS services, including:
 - **AWS Elastic Beanstalk (EC2 Instance):** For deploying the Flask backend.
 - **AWS Amplify:** For continuous deployment and hosting of the React frontend.
 - **AWS Route 53 and Certificate Manager:** For domain name management.
 - **AWS S3:** For storing static assets and user-uploaded images.
+
+## Graphs
 
 ### Accuracy Graph
 
@@ -86,18 +92,18 @@ LeafAI is deployed using various AWS services, including:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Built With
+# Built With
 
-### Frontend
+## Frontend
 [![React][React.js]][React-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
-### Backend
+## Backend
 [![Flask][Flask.palletsprojects.com]][Flask-url]
 [![TensorFlow][TensorFlow.org]][TensorFlow-url]
 [![MongoDB][MongoDB.com]][MongoDB-url]
 
-### Deployment and Authentication
+## Deployment and Authentication
 [![AWS][AWS.com]][AWS-url]
 [![OAuth][OAuth.com]][OAuth-url]
 
@@ -132,9 +138,9 @@ LeafAI is deployed using various AWS services, including:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Getting Started
+# Getting Started
 
-### Prerequisites
+## Prerequisites
 * npm
   ```sh
   npm install npm@latest -g
@@ -170,32 +176,32 @@ LeafAI is deployed using various AWS services, including:
   pip install dnspython itsdangerous Jinja2 MarkupSafe
   ```
 
-### Installation
+## Installation
 
-#### Clone the Repository
+### Clone the Repository
 
 ```sh
 git clone https://github.com/adityakmehrotra/LeafAI.git
 cd LeafAI
 ```
 
-#### Install Backend Dependencies
+### Install Backend Dependencies
 ```sh
 # Navigate to the backend directory
 cd backend
 pip install -r requirements.txt
 ```
 
-#### Install Frontend Dependencies
+### Install Frontend Dependencies
 ```sh
 # Navigate to the frontend directory
 cd ../client
 npm install
 ```
 
-### Running the Application
+## Running the Application
 
-#### Start the Flask Backend
+### Start the Flask Backend
 
 ```sh
 # Navigate to the backend directory
@@ -203,18 +209,18 @@ cd ../backend
 flask run
 ```
 
-#### Start the React Frontend
+### Start the React Frontend
 
 Open another terminal window and navigate to the client directory:
 ```sh
 npm start
 ```
 
-##### The application should now be running on http://localhost:8000.
+#### The application should now be running on http://localhost:8000.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Usage
+# Usage
 1. **Upload an Image:** Navigate to the main page and upload a leaf image through the interface.
 2. **View Predictions:** Submit the image to view the prediction results.
 3. **Download Sample Image:** Click the "Download Sample Image" button if you do not have a leaf image ready for testing.
@@ -224,18 +230,18 @@ npm start
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contributing
+# Contributing
 Contributions to this project are welcome! Please fork the repository, make your changes, and submit a pull request for review.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## License
+# License
 
 Distributed under the MIT License. See for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contact
+# Contact
 
 For any queries, you can reach out at `adi1.mehrotra@gmail.com`.
 
@@ -245,7 +251,7 @@ Project Repo: https://github.com/adityakmehrotra/LeafAI
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Acknowledgments
+# Acknowledgments
 Thanks to all the contributors who have invested their time and effort in improving this project.
 Special thanks to AWS for hosting services.
 
