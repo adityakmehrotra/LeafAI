@@ -29,10 +29,38 @@
   </p>
 </div>
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
 ## About The Project
 
+![Annotation 2024-08-06 135446](https://github.com/user-attachments/assets/5944e50e-a576-41d6-9eb3-9e0aaa013f32)
+
+
 ### Overview
-LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. LeafAI offers various features including image uploaded for species identification, sample image download, ser authentication via OAuth, adn histroy tracking for previously uploaded images. The application is deployed using AWS services such as Elastic Beanstalk (EC2 instance), Amplify, Route 53, and S3, to ensure scalable performance. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
+LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. The application uses MongoDB to manage and store user data and prediction history efficiently. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
 
 ### Features
 - **Image Upload**: Users can upload images of leaves for species identification.
