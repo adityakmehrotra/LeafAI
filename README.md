@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://leafai.adityakmehrotra.com">
-    <img src="" alt="LeafAI Logo" width="80" height="80">
+    <img src="client/public/leaf_icon.png" alt="LeafAI Logo" width="80" height="80">
   </a>
   
   <h3 align="center">LeafAI</h3>
