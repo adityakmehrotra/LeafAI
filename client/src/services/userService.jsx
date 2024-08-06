@@ -4,7 +4,6 @@ const api = 'https://leafai-api.adityakmehrotra.com';
 
 export const uploadImage = async (formData, username = 'UNDEFINED') => {
   try {
-    // Append the username to the formData
     formData.append('username', username);
 
     const response = await axios.post(`${api}/upload_image`, formData, {
@@ -13,7 +12,7 @@ export const uploadImage = async (formData, username = 'UNDEFINED') => {
       }
     });
 
-    if (response.status === 429) { // Check if the rate limit has been exceeded
+    if (response.status === 429) {
       alert("You have exceeded the rate limit. Please wait a while before trying again.");
       return;
     }
