@@ -62,6 +62,11 @@
 
 ![LeafAI (1)](https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263)
 
+[![React][React.js]][React-url]
+[![Flask][Flask.palletsprojects.com]][Flask-url]
+[![AWS][AWS.com]][AWS-url]
+[![TensorFlow][TensorFlow.org]][TensorFlow-url]
+[![MongoDB][MongoDB.com]][MongoDB-url]
 
 ## Overview
 LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. The application uses MongoDB to manage and store user data and prediction history efficiently. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
