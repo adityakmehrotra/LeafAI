@@ -87,7 +87,9 @@
 
 # About The Project
 
-![LeafAI](https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263)[https://leafai.adityakmehrotra.com]
+<a href="https://leafai.adityakmehrotra.com" target="_blank">
+  <img src="https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263" alt="LeafAI">
+</a>
 
 [![React][React.js]][React-url]
 [![Flask][Flask.palletsprojects.com]][Flask-url]
