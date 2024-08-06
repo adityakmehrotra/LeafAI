@@ -13,7 +13,7 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 
 ### Accuracy Graph
 
-![image](https://github.com/adityakmehrotra/LeafAI/assets/24847438/57f01229-b825-4ae5-929b-5db89c818429)
+![image](https://github.com/user-attachments/assets/1fab547a-2b4c-45d2-8c20-1618ebfa9373)
 
 #### Accuracy Graph Analysis
 - **Rapid Improvement:** Between epochs 0 and 6, there is a sharp increase in both training and validation accuracies. This rapid improvement indicates that the model quickly learns patterns from the training data, which are also valid for the unseen validation data. This suggests a good initial feature extraction and learning rate configuration.
@@ -27,7 +27,7 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 
 ### Loss Graph
 
-![image](https://github.com/adityakmehrotra/LeafAI/assets/24847438/405283fc-0c56-4bc6-8433-c4fb28af71cc)
+![image](https://github.com/user-attachments/assets/b36ed1ab-5e96-4eb0-a5e0-210e80e83a26)
 
 #### Loss Graph Analysis
 - **Sharp Decrease in Early Epochs:** Both the training loss (loss) and validation loss (val_loss) decrease sharply between epochs 0 and 6. This indicates that the model quickly learns to minimize the error between the predicted and actual outputs, which suggests that the initial model parameters and learning configuration are well-tuned for the task.
