@@ -59,19 +59,19 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
   ```sh
   npm install npm@latest -g
   ```
-* Click>=8.0
-* Flask>=2.0.0
-* itsdangerous>=2.0.0
-* Jinja2>=3.1.2
-* MarkupSafe>=2.0.0
-* Werkzeug>=2.0.0
-* Pillow>=8.0.0
-* gunicorn>=20.0.4
-* Flask-Cors>=3.0.10
-* Flask-Limiter==1.4
+* Click
+* Flask
+* itsdangerous
+* Jinja2
+* MarkupSafe
+* Werkzeug
+* Pillow
+* gunicorn
+* Flask-Cors
+* Flask-Limiter
 * numpy
 * joblib
-* tensorflow==2.16.2
+* tensorflow
 * pymongo
 * dnspython
 
