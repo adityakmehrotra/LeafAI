@@ -22,6 +22,13 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 
 ![image](https://github.com/user-attachments/assets/b36ed1ab-5e96-4eb0-a5e0-210e80e83a26)
 
+### Deployment
+LeafAI is deployed using various AWS services, including:
+- **AWS Elastic Beanstalk (EC2 Instance):** For deploying the Flask backend.
+- **AWS Amplify:** For continuous deployment and hosting of the React frontend.
+- **AWS Route 53 and Certificate Manager:** For domain name management.
+- **AWS S3:** For storing static assets and user-uploaded images.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
@@ -54,16 +61,9 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 [OAuth.com]: https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=oauth&logoColor=white
 [OAuth-url]: https://oauth.net/
 
-### Deployment
-LeafAI is deployed using various AWS services, including:
-- **AWS Elastic Beanstalk (EC2 Instance):** For deploying the Flask backend.
-- **AWS Amplify:** For continuous deployment and hosting of the React frontend.
-- **AWS Route 53 and Certificate Manager:** For domain name management.
-- **AWS S3:** For storing static assets and user-uploaded images.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Installation
+## Getting Started
 
 ### Prerequisites
 * npm
@@ -101,7 +101,7 @@ LeafAI is deployed using various AWS services, including:
   pip install dnspython itsdangerous Jinja2 MarkupSafe
   ```
 
-### Setup Instructions
+### Installation
 
 #### Clone the Repository
 
@@ -143,6 +143,8 @@ npm start
 
 ##### The application should now be running on http://localhost:8000.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Usage
 1. **Upload an Image:** Navigate to the main page and upload a leaf image through the interface.
 2. **View Predictions:** Submit the image to view the prediction results.
@@ -151,15 +153,26 @@ npm start
 5. **Log In:** Log in to your account to access personalized features.
 6. **View Prediction History:** After logging in, navigate to your dashboard to view previously uploaded leaf images and their prediction results, allowing you to track your identification history.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Contributing
 Contributions to this project are welcome! Please fork the repository, make your changes, and submit a pull request for review.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## License
+
+Distributed under the MIT License. See for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+For any queries, you can reach out at `adi1.mehrotra@gmail.com`.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Acknowledgments
 Thanks to all the contributors who have invested their time and effort in improving this project.
 Special thanks to AWS for hosting services.
 
-## Contact
-For any queries, you can reach out at `adi1.mehrotra@gmail.com`.
-
-### Last Updated
-08/01/2024
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
