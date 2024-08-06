@@ -1,7 +1,9 @@
 <a id="readme-top"></a>
 # LeafAI
 <div align="center">
+  
   [![Contributors][contributors-shield]][contributors-url]
+  
   [![Stargazers][stars-shield]][stars-url]
   [![Issues][issues-shield]][issues-url]
   [![MIT License][license-shield]][license-url]
