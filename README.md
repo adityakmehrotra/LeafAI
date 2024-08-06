@@ -66,6 +66,34 @@ The training data for the machine learning model was primarily sourced from the 
 - **Frontend**: React.js
 - **Backend**: Flask
 - **Machine Learning**: TensorFlow Sequential ML Model
+- 
+
+## Built With
+
+### Frontend
+* [![React][React.js]][React-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+
+### Backend
+* [![Flask][Flask.palletsprojects.com]][Flask-url]
+
+### Machine Learning
+* [![TensorFlow][TensorFlow.org]][TensorFlow-url]
+
+### Database
+* [![MongoDB][MongoDB.com]][MongoDB-url]
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
+[Flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/
+[TensorFlow.org]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
+[TensorFlow-url]: https://www.tensorflow.org/
+[MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
+
 
 ## Installation
 
