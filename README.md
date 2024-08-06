@@ -60,7 +60,7 @@
 
 # About The Project
 
-![LeafAI](https://github.com/user-attachments/assets/e850893f-1426-4e0a-a493-ec8e342ef6fb)
+![LeafAI (1)](https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263)
 
 
 ## Overview
