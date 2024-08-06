@@ -7,6 +7,10 @@ Werkzeug>=2.0.0
 Pillow>=8.0.0
 gunicorn>=20.0.4
 Flask-Cors>=3.0.10
+Flask-Limiter==1.4
 numpy
 joblib
 tensorflow==2.16.2
+pymongo
+dnspython
+werkzeug
