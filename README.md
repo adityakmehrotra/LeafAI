@@ -1,6 +1,13 @@
 <a id="readme-top"></a>
 # LeafAI
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 <br />
 <div align="center">
   <a href="https://leafai.adityakmehrotra.com">
@@ -80,6 +87,20 @@ LeafAI is deployed using various AWS services, including:
 [AWS-url]: https://aws.amazon.com/
 [OAuth.com]: https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=oauth&logoColor=white
 [OAuth-url]: https://oauth.net/
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[contributors-url]: https://github.com/adityakmehrotra/LeafAI/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[forks-url]: https://github.com/adityakmehrotra/LeafAI/network/members
+[stars-shield]: https://img.shields.io/github/stars/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[stars-url]: https://github.com/adityakmehrotra/LeafAI/stargazers
+[issues-shield]: https://img.shields.io/github/issues/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[issues-url]: https://github.com/adityakmehrotra/LeafAI/issues
+[license-shield]: https://img.shields.io/github/license/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[license-url]: https://github.com/adityakmehrotra/LeafAI/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
