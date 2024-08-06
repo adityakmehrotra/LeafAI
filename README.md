@@ -50,7 +50,8 @@
           <ul>
             <li><a href="#frontend">Frontend</a></li>
             <li><a href="#backend">Backend</a></li>
-            <li><a href="#deployment-and-authentication">Deployment and Authentication</a></li>
+            <li><a href="#machine-learning">Machine Learning</a></li>
+            <li><a href="#deployment-and-devops">Deployment and DevOps</a></li>
           </ul>
         </li>
       </ul>
@@ -132,30 +133,44 @@ LeafAI is deployed using various AWS services, including:
 ## Frontend
 [![React][React.js]][React-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![Figma][Figma.com]][Figma-url]
 
 ## Backend
 [![Flask][Flask.palletsprojects.com]][Flask-url]
-[![TensorFlow][TensorFlow.org]][TensorFlow-url]
 [![MongoDB][MongoDB.com]][MongoDB-url]
-
-## Deployment and Authentication
-[![AWS][AWS.com]][AWS-url]
+[![JWT][JWT.io]][JWT-url]
 [![OAuth][OAuth.com]][OAuth-url]
+
+## Machine Learning
+[![TensorFlow][TensorFlow.org]][TensorFlow-url]
+[![Keras][Keras.io]][Keras-url]
+
+### Deployment and DevOps
+[![AWS][AWS.com]][AWS-url]
+[![NPM][NPMjs.com]][NPM-url]
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com/
+[Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://www.figma.com/
 [Flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/
-[TensorFlow.org]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
-[TensorFlow-url]: https://www.tensorflow.org/
-[MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
-[MongoDB-url]: https://www.mongodb.com/
-[AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
-[AWS-url]: https://aws.amazon.com/
+[JWT.io]: https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jwt&logoColor=white
+[JWT-url]: https://jwt.io/
 [OAuth.com]: https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=oauth&logoColor=white
 [OAuth-url]: https://oauth.net/
+[MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
+[TensorFlow.org]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
+[TensorFlow-url]: https://www.tensorflow.org/
+[Keras.io]: https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white
+[Keras-url]: https://keras.io/
+[AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
+[AWS-url]: https://aws.amazon.com/
+[NPMjs.com]: https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white
+[NPM-url]: https://www.npmjs.com/
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/adityakmehrotra/LeafAI.svg?style=for-the-badge
