@@ -149,43 +149,6 @@ LeafAI is deployed using various AWS services, including:
 [![AWS][AWS.com]][AWS-url]
 [![NPM][NPMjs.com]][NPM-url]
 
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com/
-[Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
-[Figma-url]: https://www.figma.com/
-[Flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
-[Flask-url]: https://flask.palletsprojects.com/
-[JWT.io]: https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jwt&logoColor=white
-[JWT-url]: https://jwt.io/
-[OAuth.com]: https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=oauth&logoColor=white
-[OAuth-url]: https://oauth.net/
-[MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
-[MongoDB-url]: https://www.mongodb.com/
-[TensorFlow.org]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
-[TensorFlow-url]: https://www.tensorflow.org/
-[Keras.io]: https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white
-[Keras-url]: https://keras.io/
-[AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
-[AWS-url]: https://aws.amazon.com/
-[NPMjs.com]: https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white
-[NPM-url]: https://www.npmjs.com/
-
-
-[contributors-shield]: https://img.shields.io/github/contributors/adityakmehrotra/LeafAI.svg?style=for-the-badge
-[contributors-url]: https://github.com/adityakmehrotra/LeafAI/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/adityakmehrotra/LeafAI.svg?style=for-the-badge
-[forks-url]: https://github.com/adityakmehrotra/LeafAI/network/members
-[stars-shield]: https://img.shields.io/github/stars/adityakmehrotra/LeafAI.svg?style=for-the-badge
-[stars-url]: https://github.com/adityakmehrotra/LeafAI/stargazers
-[issues-shield]: https://img.shields.io/github/issues/adityakmehrotra/LeafAI.svg?style=for-the-badge
-[issues-url]: https://github.com/adityakmehrotra/LeafAI/issues
-[license-shield]: https://img.shields.io/github/license/adityakmehrotra/LeafAI.svg?style=for-the-badge
-[license-url]: https://github.com/adityakmehrotra/LeafAI/blob/main/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Getting Started
@@ -315,3 +278,42 @@ Thanks to all the Beta testers who helped find bugs in LeafAI.
 Special thanks to AWS for hosting services.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
+[Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://www.figma.com/
+[Flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/
+[JWT.io]: https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jwt&logoColor=white
+[JWT-url]: https://jwt.io/
+[OAuth.com]: https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=oauth&logoColor=white
+[OAuth-url]: https://oauth.net/
+[MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
+[TensorFlow.org]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
+[TensorFlow-url]: https://www.tensorflow.org/
+[Keras.io]: https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white
+[Keras-url]: https://keras.io/
+[AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
+[AWS-url]: https://aws.amazon.com/
+[NPMjs.com]: https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white
+[NPM-url]: https://www.npmjs.com/
+
+[contributors-shield]: https://img.shields.io/github/contributors/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[contributors-url]: https://github.com/adityakmehrotra/LeafAI/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[forks-url]: https://github.com/adityakmehrotra/LeafAI/network/members
+[stars-shield]: https://img.shields.io/github/stars/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[stars-url]: https://github.com/adityakmehrotra/LeafAI/stargazers
+[issues-shield]: https://img.shields.io/github/issues/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[issues-url]: https://github.com/adityakmehrotra/LeafAI/issues
+[license-shield]: https://img.shields.io/github/license/adityakmehrotra/LeafAI.svg?style=for-the-badge
+[license-url]: https://github.com/adityakmehrotra/LeafAI/blob/main/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
