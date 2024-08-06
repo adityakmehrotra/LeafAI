@@ -56,6 +56,9 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 
 ### Prerequisites
 * npm
+  ```sh
+  npm install npm@latest -g
+  ```
 * Click>=8.0
 * Flask>=2.0.0
 * itsdangerous>=2.0.0
