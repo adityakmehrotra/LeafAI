@@ -39,6 +39,9 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 ### Database
 [![MongoDB][MongoDB.com]][MongoDB-url]
 
+### Deployment
+[![AWS][AWS.com]][AWS-url]
+
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
@@ -49,6 +52,8 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 [TensorFlow-url]: https://www.tensorflow.org/
 [MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [MongoDB-url]: https://www.mongodb.com/
+[AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
+[AWS-url]: https://aws.amazon.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,12 +106,14 @@ cd LeafAI
 
 #### Install Backend Dependencies
 ```sh
+# Navigate to the backend directory
 cd backend
 pip install -r requirements.txt
 ```
 
 #### Install Frontend Dependencies
 ```sh
+# Navigate to the frontend directory
 cd ../client
 npm install
 ```
@@ -117,6 +124,7 @@ npm install
 
 ```sh
 # Navigate to the backend directory
+cd ../backend
 flask run
 ```
 
@@ -133,6 +141,9 @@ npm start
 1. **Upload an Image:** Navigate to the main page and upload a leaf image through the interface.
 2. **View Predictions:** Submit the image to view the prediction results.
 3. **Download Sample Image:** Click the "Download Sample Image" button if you do not have a leaf image ready for testing.
+4. **Create an Account:** Sign up to create a personal account, allowing access to additional features.
+5. **Log In:** Log in to your account to access personalized features.
+6. **View Prediction History:** After logging in, navigate to your dashboard to view previously uploaded leaf images and their prediction results, allowing you to track your identification history.
 
 ## Contributing
 Contributions to this project are welcome! Please fork the repository, make your changes, and submit a pull request for review.
