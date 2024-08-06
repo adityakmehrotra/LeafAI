@@ -326,7 +326,7 @@ function Upload({ loggedIn, username }) {
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to process the request 1: ' + error.message);
+        alert('Something went wrong. Try to Download an image and use that');
         handleFileReset();
     } finally {
         setMLLoading(false);

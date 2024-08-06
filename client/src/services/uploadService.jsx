@@ -22,7 +22,7 @@ export const uploadImage = async (formData, username = 'UNDEFINED') => {
     if (error.response && error.response.status === 400) {
       alert("Bad request. Please check the file and try again.");
     } else {
-      alert('Failed to process the request 2: ' + error.message);
+      alert('Something went wrong. Try to Download an image and use that');
     }
     throw error;
   }
