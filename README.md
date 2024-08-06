@@ -55,27 +55,40 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 ## Installation
 
 ### Prerequisites
-- Node.js
-- Python 3.x
-- pip
+* npm
+* Click>=8.0
+* Flask>=2.0.0
+* itsdangerous>=2.0.0
+* Jinja2>=3.1.2
+* MarkupSafe>=2.0.0
+* Werkzeug>=2.0.0
+* Pillow>=8.0.0
+* gunicorn>=20.0.4
+* Flask-Cors>=3.0.10
+* Flask-Limiter==1.4
+* numpy
+* joblib
+* tensorflow==2.16.2
+* pymongo
+* dnspython
 
 ### Setup Instructions
 
 #### Clone the Repository
 
-```bash
+```sh
 git clone https://github.com/adityakmehrotra/LeafAI.git
 cd LeafAI
 ```
 
 #### Install Backend Dependencies
-```bash
+```sh
 cd backend
 pip install -r requirements.txt
 ```
 
 #### Install Frontend Dependencies
-```bash
+```sh
 cd ../client
 npm install
 ```
@@ -84,7 +97,7 @@ npm install
 
 #### Start the Flask Backend
 
-```bash
+```sh
 # Navigate to the backend directory
 flask run
 ```
@@ -92,7 +105,7 @@ flask run
 #### Start the React Frontend
 
 Open another terminal window and navigate to the client directory:
-```bash
+```sh
 npm start
 ```
 
