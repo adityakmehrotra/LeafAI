@@ -1,5 +1,5 @@
 <a id="readme-top"></a>
-# LeafAI
+
 <div align="center">
   
   [![Contributors][contributors-shield]][contributors-url]
@@ -15,7 +15,7 @@
     <img src="client/public/leaf_icon.png" alt="LeafAI Logo" width="80" height="80">
   </a>
   
-  <h3 align="center">LeafAI</h3>
+  <h2 align="center">LeafAI</h2>
 
   <p align="center">
     A web application that uses machine learning to identify leaf species from user uploaded images.
@@ -32,7 +32,7 @@
 ## About The Project
 
 ### Overview
-LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
+LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. LeafAI offers various features including image uploaded for species identification, sample image download, ser authentication via OAuth, adn histroy tracking for previously uploaded images. The application is deployed using AWS services such as Elastic Beanstalk (EC2 instance), Amplify, Route 53, and S3, to ensure scalable performance. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
 
 ### Features
 - **Image Upload**: Users can upload images of leaves for species identification.
