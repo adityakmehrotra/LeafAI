@@ -60,7 +60,8 @@
 
 # About The Project
 
-![image](https://github.com/user-attachments/assets/cea4736b-739c-45d9-a032-66390bdd18ee)
+![LeafAI](https://github.com/user-attachments/assets/e850893f-1426-4e0a-a493-ec8e342ef6fb)
+
 
 ## Overview
 LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. The application uses MongoDB to manage and store user data and prediction history efficiently. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
@@ -231,19 +232,27 @@ npm start
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Contributing
-Contributions to this project are welcome! Please fork the repository, make your changes, and submit a pull request for review.
+Contributions to this project are **greatly appreciated**!
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # License
 
-Distributed under the MIT License. See for more information.
+Distributed under the MIT License. See ```LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Contact
 
-For any queries, you can reach out at `adi1.mehrotra@gmail.com`.
+For any queries, you can reach out to me at `adi1.mehrotra@gmail.com`.
 
 Project Website: https://leafai.adityakmehrotra.com
 
@@ -252,7 +261,8 @@ Project Repo: https://github.com/adityakmehrotra/LeafAI
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Acknowledgments
-Thanks to all the contributors who have invested their time and effort in improving this project.
+Thanks to all the Beta testers who helped find bugs in LeafAI.
+
 Special thanks to AWS for hosting services.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
