@@ -61,14 +61,17 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
   ```
 * Click
 * Flask
+* Flask-Cors
+* Flask-Limiter
+  ```sh
+  pip install Flask Flask-Cors Flask-Limiter
+  ```
 * itsdangerous
 * Jinja2
 * MarkupSafe
 * Werkzeug
 * Pillow
 * gunicorn
-* Flask-Cors
-* Flask-Limiter
 * numpy
 * joblib
 * tensorflow
