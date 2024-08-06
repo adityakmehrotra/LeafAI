@@ -1,6 +1,22 @@
 <a id="readme-top"></a>
 # LeafAI
 
+<br />
+<div align="center">
+  <h3 align="center">LeafAI</h3>
+
+  <p align="center">
+    A web application that uses machine learning to identify leaf species from user uploaded images.
+    <br />
+    <br />
+    <a href="https://github.com/adityakmehrotra/LeafAI">View Demo</a>
+    ·
+    <a href="https://github.com/adityakmehrotra/LeafAI/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/adityakmehrotra/LeafAI/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
+
 ## About The Project
 
 ### Overview
@@ -14,6 +30,13 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 - **User Authentication**: Users can create accounts and log in to access personalized features.
 - **History Tracking**: Logged-in users can view their previously uploaded leaf images and the corresponding species predictions, allowing them to track their history and review past results.
 
+### Deployment
+LeafAI is deployed using various AWS services, including:
+- **AWS Elastic Beanstalk (EC2 Instance):** For deploying the Flask backend.
+- **AWS Amplify:** For continuous deployment and hosting of the React frontend.
+- **AWS Route 53 and Certificate Manager:** For domain name management.
+- **AWS S3:** For storing static assets and user-uploaded images.
+
 ### Accuracy Graph
 
 ![image](https://github.com/user-attachments/assets/1fab547a-2b4c-45d2-8c20-1618ebfa9373)
@@ -21,13 +44,6 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 ### Loss Graph
 
 ![image](https://github.com/user-attachments/assets/b36ed1ab-5e96-4eb0-a5e0-210e80e83a26)
-
-### Deployment
-LeafAI is deployed using various AWS services, including:
-- **AWS Elastic Beanstalk (EC2 Instance):** For deploying the Flask backend.
-- **AWS Amplify:** For continuous deployment and hosting of the React frontend.
-- **AWS Route 53 and Certificate Manager:** For domain name management.
-- **AWS S3:** For storing static assets and user-uploaded images.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
