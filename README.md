@@ -21,6 +21,8 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 
 ![image](https://github.com/user-attachments/assets/b36ed1ab-5e96-4eb0-a5e0-210e80e83a26)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Built With
 
 ### Frontend
@@ -46,6 +48,8 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 [TensorFlow-url]: https://www.tensorflow.org/
 [MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [MongoDB-url]: https://www.mongodb.com/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Installation
 
