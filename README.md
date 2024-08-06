@@ -18,7 +18,7 @@
   <h2 align="center">LeafAI</h2>
 
   <p align="center">
-    A web application that uses machine learning to identify leaf species from user uploaded images.
+    A web application that uses machine learning to identify leaf species from user uploaded images. Users can create accounts using OAuth authentication, upload images for species identification, and view their previous uploads along with the corresponding predictions.
     <br />
     <br />
     <a href="https://github.com/adityakmehrotra/LeafAI">View Demo</a>
