@@ -43,32 +43,6 @@ LeafAI is a cutting-edge web application designed to identify leaf species from 
 The training data for the machine learning model was primarily sourced from the UC Irvine Public Dataset, among other online resources. This rich dataset provides a diverse array of leaf images, which has been instrumental in training our model with high precision.
 
 ## Built With
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Flask][Flask.palletsprojects.com]][Flask-url]
-* [![TensorFlow][TensorFlow.org]][TensorFlow-url]
-* [![MongoDB][MongoDB.com]][MongoDB-url]
-
-[Next.js]: https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-blue?style=for-the-badge&logo=react&logoColor=white
-[React-url]: https://reactjs.org/
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-purple?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com/
-[Flask.palletsprojects.com]: https://img.shields.io/badge/Flask-black?style=for-the-badge&logo=flask&logoColor=white
-[Flask-url]: https://flask.palletsprojects.com/
-[TensorFlow.org]: https://img.shields.io/badge/TensorFlow-orange?style=for-the-badge&logo=tensorflow&logoColor=white
-[TensorFlow-url]: https://www.tensorflow.org/
-[MongoDB.com]: https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=mongodb&logoColor=white
-[MongoDB-url]: https://www.mongodb.com/
-
-- **Frontend**: React.js
-- **Backend**: Flask
-- **Machine Learning**: TensorFlow Sequential ML Model
-- 
-
-## Built With
 
 ### Frontend
 * [![React][React.js]][React-url]
@@ -93,7 +67,6 @@ The training data for the machine learning model was primarily sourced from the 
 [TensorFlow-url]: https://www.tensorflow.org/
 [MongoDB.com]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [MongoDB-url]: https://www.mongodb.com/
-
 
 ## Installation
 
