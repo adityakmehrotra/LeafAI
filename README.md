@@ -78,7 +78,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -133,6 +132,7 @@ LeafAI is deployed using various AWS services, including:
 ## Frontend
 [![React][React.js]][React-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+[![React Hook Form][ReactHookForm.com]][ReactHookForm-url]
 [![Figma][Figma.com]][Figma-url]
 
 ## Backend
@@ -286,6 +286,8 @@ Special thanks to AWS for hosting services.
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com/
+[ReactHookForm.com]: https://img.shields.io/badge/React_Hook_Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white
+[ReactHookForm-url]: https://react-hook-form.com/
 [Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
 [Figma-url]: https://www.figma.com/
 [Flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
