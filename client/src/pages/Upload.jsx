@@ -279,6 +279,13 @@ function Upload({ loggedIn, username }) {
             origin: "Europe, much of Temperate Asia and Western North Africa",
             description: "Better known as the stinging nettle, this plant is notable for its serrated leaves and tiny, stinging hairs that can cause irritation upon contact. Despite this, it is valued for its nutritional and medicinal properties and is often used in herbal remedies and cooking."
         },
+        {
+            index: 34,
+            name: 'Urtica DioicaA',
+            source: Urtica_Dioica,
+            origin: "Europe, much of Temperate Asia and Western North AfricaA",
+            description: "Better known as the stinging nettle, this plant is notable for its serrated leaves and tiny, stinging hairs that can cause irritation upon contact. Despite this, it is valued for its nutritional and medicinal properties and is often used in herbal remedies and cooking."
+        },
       ]);
 
     const handleResize = () => setWindowWidth(window.innerWidth);
