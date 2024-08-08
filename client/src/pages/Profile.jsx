@@ -44,7 +44,8 @@ const leafDetails = [
   { index: 30, name: 'Schinus Terebinthifolius', image: Schinus_Terebinthifolius },
   { index: 31, name: 'Taxus Bacatta', image: Taxus_Bacatta },
   { index: 32, name: 'Tilia Tomentosa', image: Tilia_Tomentosa },
-  { index: 33, name: 'Urtica Dioica', image: Urtica_Dioica }
+  { index: 33, name: 'Urtica Dioica', image: Urtica_Dioica },
+  { index: 34, name: 'AUrtica DioicaA', image: Urtica_Dioica }
 ];
 
 const Profile = ({ show, handleClose, username }) => {
