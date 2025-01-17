@@ -234,7 +234,7 @@ function App() {
           <Modal.Title>Maintenance in Progress</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Our website is currently undergoing maintenance. Services will resume on January 19, 2025, at 12:00 AM CST. Thank you for your patience.
+          LeafAI is currently undergoing maintenance. Services will resume on January 19, 2025, at 12:00 AM CST. Thank you for your patience.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={closeMaintenanceModal} disabled={new Date() < maintenanceEndTime}>
