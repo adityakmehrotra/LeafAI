@@ -12,7 +12,7 @@
 
 <br />
 <div align="center">
-  <a href="https://leafai.adityakmehrotra.com">
+  <a href="https://leafai.adityamehrotra.com">
     <img src="client/public/leaf_icon.png" alt="LeafAI Logo" width="80" height="80">
   </a>
   
@@ -88,7 +88,7 @@
 
 # About The Project
 
-<a href="https://leafai.adityakmehrotra.com" target="_blank">
+<a href="https://leafai.adityamehrotra.com" target="_blank">
   <img src="https://github.com/user-attachments/assets/7af418f5-27d7-40d1-af33-bf9cc2a44263" alt="LeafAI">
 </a>
 
@@ -99,7 +99,7 @@
 [![MongoDB][MongoDB.com]][MongoDB-url]
 
 ## Overview
-LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. The application uses MongoDB to manage and store user data and prediction history efficiently. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityakmehrotra.com).
+LeafAI is a cutting-edge web application designed to identify leaf species from images using machine learning. This full-stack application combines a React frontend with a Flask backend, harnessing the power of TensorFlow's Sequential model to analyze and predict leaf species. The application uses MongoDB to manage and store user data and prediction history efficiently. LeafAI not only simplifies botanical research but also enhances educational experiences for users interested in botany. Visit the application [here](https://leafai.adityamehrotra.com).
 
 ## Features
 - **Image Upload**: Users can upload images of leaves for species identification.
@@ -267,7 +267,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 For any queries, you can reach out to me at `adi1.mehrotra@gmail.com`.
 
-Project Website: https://leafai.adityakmehrotra.com
+Project Website: https://leafai.adityamehrotra.com
 
 Project Repo: https://github.com/adityakmehrotra/LeafAI
 
